@@ -2,6 +2,7 @@
   "name": "joyce-version",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5067",
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.1",
@@ -25,6 +26,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-backend": "cd flask && python -m flask run --port 5067",
+    "start-backend-mac": "cd flask && python3 -m flask run --port 5067",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
