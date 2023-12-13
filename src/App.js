@@ -22,17 +22,26 @@ function App() {
 
 	<div className="App">
            <Header token={removeToken} />
-           {!token && token !== "" && token !== undefined ? (
-             <Login setToken={setToken} />
-           ) : (
+	   const locationpath= = useLocation()
+  	<Routes>         
+	  <Route exact path="/signup" element={<signup setToken={setToken}/>}></Route>
+	</Routes>
+	  {!token && token !== "" && window.location.pathname!=="/signup" && token !== undefined ? (
+		
+		<Login setToken={setToken}/>
+
+	   ) : (
              <>
 		<Routes>
+
+		  <Route exact path="/signup" element={<Signup token={token} setToken={setToken}/>}></Route>
 		   <Route exact path="/" element={<Home token={token} setToken={setToken}/>}></Route>
-		
+       	           <Route exact path="/settings" element={<Settings token={token} setToken={setToken}/>}></Route>
 		</Routes>
             </>
           )}
-        </div>
+        
+</div>
     </BrowserRouter>
   );
 }
