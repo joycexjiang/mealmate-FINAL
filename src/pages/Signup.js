@@ -12,9 +12,10 @@ import {
   Input,
   ChakraProvider,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../styles/Login.css";
 import axios from "axios";
+import SelectSchool from "../components/SelectSchool";
 
 function Signup(props) {
   //need to modify to create an account
@@ -82,6 +83,13 @@ function Signup(props) {
       [name]: value,
     }));
   }
+
+  const handleSchoolSelection = (selectedSchool) => {
+    setSigninForm((prevSignInForm) => ({
+      ...prevSignInForm,
+      school: selectedSchool, // Update the school value in the state
+    }));
+  };
 
   return (
     <div>
@@ -272,14 +280,8 @@ function Signup(props) {
                   />
                 </FormControl>
                 <FormControl id="school">
-                  <FormLabel>Enter school</FormLabel>
-                  <Input
-                    onChange={handleChange}
-                    type="school"
-                    name="school"
-                    placeholder="Enter school"
-                    value={signInForm.school}
-                  />
+                  <FormLabel>Select school</FormLabel>
+                  <SelectSchool onSelectSchool={handleSchoolSelection} />
                 </FormControl>
                 <FormControl id="year">
                   <FormLabel>Enter year</FormLabel>

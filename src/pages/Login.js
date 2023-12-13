@@ -107,9 +107,7 @@ function Login(props) {
             </label>
           </Box>
           <Box className="flex items-center justify-between mt-6">
-            <Button className="text-sm text-blue-600 hover:text-blue-500">
-              Forgot Password?
-            </Button>
+            <Button className="text-sm">Forgot Password?</Button>
             <Button
               onClick={logMeIn}
               className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
@@ -122,9 +120,7 @@ function Login(props) {
             Consent, & Privacy Policy
           </Box>
           <Box className="mt-4 text-center">
-            <Button className="text-sm text-blue-600 hover:text-blue-500">
-              Don't have an account? Sign Up
-            </Button>
+            <Button className="text-sm">Don't have an account? Sign Up</Button>
           </Box>
         </Box>
       </Box>
