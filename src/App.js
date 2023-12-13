@@ -22,7 +22,6 @@ function App() {
 
 	<div className="App">
            <Header token={removeToken} />
-	   const locationpath= = useLocation()
   	<Routes>         
 	  <Route exact path="/signup" element={<signup setToken={setToken}/>}></Route>
 	</Routes>

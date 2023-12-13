@@ -7,7 +7,7 @@ import {
   Button,
 } from "@radix-ui/themes";
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import "../styles/Login.css";
 import logoIcon from "../images/icon.svg";
 import axios from "axios";
@@ -110,21 +110,25 @@ function Login(props) {
             <Button className="text-sm text-blue-600 hover:text-blue-500">
               Forgot Password?
             </Button>
-            <Button
+            <Link to={"/"}>
+	      <Button
               onClick={logMeIn}
               className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
             >
               Log in
             </Button>
+	    </Link>
           </Box>
           <Box className="mt-6 text-center text-xs text-gray-500">
             By entering and clicking Next, you agree to the Terms, E-Sign
             Consent, & Privacy Policy
           </Box>
           <Box className="mt-4 text-center">
-            <Button className="text-sm text-blue-600 hover:text-blue-500">
+            <Link to={"/signup"}>
+	  <Button className="text-sm text-blue-600 hover:text-blue-500">
               Don't have an account? Sign Up
             </Button>
+	  </Link>
           </Box>
         </Box>
       </Box>
