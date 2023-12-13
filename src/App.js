@@ -9,18 +9,30 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Settings from "./pages/Settings";
+import Header from "./components/Header";
+import useToken from "./components/useToken";
 
 function App() {
   // const isUserSignedIn = !!localStorage.getItem("token");
 
+  const { token, removeToken, setToken } = useToken();
+
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/settings" element={<Settings />} />
-      </Routes>
+
+	<div className="App">
+           <Header token={removeToken} />
+           {!token && token !== "" && token !== undefined ? (
+             <Login setToken={setToken} />
+           ) : (
+             <>
+		<Routes>
+		   <Route exact path="/" element={<Home token={token} setToken={setToken}/>}></Route>
+		
+		</Routes>
+            </>
+          )}
+        </div>
     </BrowserRouter>
   );
 }

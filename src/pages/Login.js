@@ -28,12 +28,12 @@ function Login(props) {
 
   function logMeIn(event) {
     //idk
-    event.preventDefault();
+//    event.preventDefault();
     console.log("logging in with:", loginForm);
 
     axios({
       method: "POST",
-      url: "/token",
+      url: "/login",
       data: {
         email: loginForm.email,
         password: loginForm.password,
@@ -55,7 +55,7 @@ function Login(props) {
       password: "",
     });
 
-    event.preventDefault();
+//    event.preventDefault();
   }
 
   function handleChange(event) {

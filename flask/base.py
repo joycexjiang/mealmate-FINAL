@@ -57,7 +57,7 @@ def refresh_expiring_jwts(response):
         return response
 
 ## creates the login token
-@api.route('/token', methods=["POST"])
+@api.route('/login', methods=["POST"])
 def create_token():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
@@ -69,8 +69,7 @@ def create_token():
         return{"msg": "Wrong credentials"}, 401
 #create access token if use exists & password is correct
     access_token = create_access_token(identity=email)
-    response = {"access_token":access_token}
-    return response
+    return jsonify(access_token=access_token)
 
 
 #create new profile 
@@ -90,8 +89,7 @@ def create_account():
     db.session.add(UserTemp)
     db.session.commit() # user added to database
     access_token = create_access_token(identity=email) #access token created
-    response = {"access_token":access_token}
-    return response
+    return jsonify(access_token=access_token)
 
 #lets the user logout
 @api.route("/logout", methods=["POST"])
@@ -104,4 +102,10 @@ def logout():
 @api.route('/', methods=["GET"])
 def index():
     return "Welcome to the API"
+
+@api.route('/protected', methods=["GET"])
+@jwt_required()
+def protected():
+    current_user=get_jwt_identity()
+    return jsonify(logged_in_as=current_user), 200
 
