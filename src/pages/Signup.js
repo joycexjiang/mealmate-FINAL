@@ -43,7 +43,7 @@ function Signup(props) {
 
     axios({
       method: "POST",
-      url: "https://localhost:5067/signup",
+      url: "/signup",
       data: {
         email: signInForm.email,
         password: signInForm.password,

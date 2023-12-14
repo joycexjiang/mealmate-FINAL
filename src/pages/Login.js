@@ -126,7 +126,7 @@ function Login(props) {
 
           <Box className="mt-4 text-center">
             <Link to={"/signup"}>
-              <Button className="text-sm text-blue-600 hover:text-blue-500">
+              <Button className="text-sm">
                 Don't have an account? Sign Up
               </Button>
             </Link>
