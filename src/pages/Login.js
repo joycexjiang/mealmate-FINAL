@@ -7,7 +7,7 @@ import {
   Button,
 } from "@radix-ui/themes";
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/Login.css";
 import logoIcon from "../images/icon.svg";
 import axios from "axios";
@@ -26,8 +26,17 @@ function Login(props) {
     });
   };
 
+  function handleChange(event) {
+    const { value, name } = event.target;
+    setloginForm((prevNote) => ({
+      ...prevNote,
+      [name]: value,
+    }));
+  }
+
   function logMeIn(event) {
     //idk
+    //    event.preventDefault();
     //    event.preventDefault();
     console.log("logging in with:", loginForm);
 
@@ -55,7 +64,7 @@ function Login(props) {
       password: "",
     });
 
-    //    event.preventDefault();
+    event.preventDefault();
   }
 
   function handleChange(event) {
@@ -106,19 +115,15 @@ function Login(props) {
               </TextFieldRoot>
             </label>
           </Box>
-          <Box className="flex items-center justify-between mt-6">
-            <Button className="text-sm">Forgot Password?</Button>
+          <Box className="flex mt-6">
             <Button
               onClick={logMeIn}
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
             >
-              Log in
+              <Link to={"/"}>Log in</Link>
             </Button>
           </Box>
-          <Box className="mt-6 text-center text-xs text-gray-500">
-            By entering and clicking Next, you agree to the Terms, E-Sign
-            Consent, & Privacy Policy
-          </Box>
+
           <Box className="mt-4 text-center">
             <Link to={"/signup"}>
               <Button className="text-sm text-blue-600 hover:text-blue-500">

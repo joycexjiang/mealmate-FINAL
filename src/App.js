@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Settings from "./pages/Settings";
 import Header from "./components/Header";
 import useToken from "./components/useToken";
+import AddFriends from "./pages/AddFriends";
 
 function App() {
   // const isUserSignedIn = !!localStorage.getItem("token");
@@ -19,28 +20,43 @@ function App() {
 
   return (
     <BrowserRouter>
-
-	<div className="App">
-           <Header token={removeToken} />
-  	<Routes>         
-	  <Route exact path="/signup" element={<signup setToken={setToken}/>}></Route>
-	</Routes>
-	  {!token && token !== "" && window.location.pathname!=="/signup" && token !== undefined ? (
-		
-		<Login setToken={setToken}/>
-
-	   ) : (
-             <>
-		<Routes>
-
-		  <Route exact path="/signup" element={<Signup token={token} setToken={setToken}/>}></Route>
-		   <Route exact path="/" element={<Home token={token} setToken={setToken}/>}></Route>
-       	           <Route exact path="/settings" element={<Settings token={token} setToken={setToken}/>}></Route>
-		</Routes>
-            </>
-          )}
-        
-</div>
+      <div className="App">
+        <Header token={removeToken} />
+        <Routes>
+          <Route
+            exact
+            path="/signup"
+            element={<signup setToken={setToken} />}
+          ></Route>
+        </Routes>
+        {!token &&
+        token !== "" &&
+        window.location.pathname !== "/signup" &&
+        token !== undefined ? (
+          <Login setToken={setToken} />
+        ) : (
+          <>
+            <Routes>
+              <Route
+                exact
+                path="/signup"
+                element={<Signup token={token} setToken={setToken} />}
+              ></Route>
+              <Route
+                exact
+                path="/"
+                element={<Home token={token} setToken={setToken} />}
+              ></Route>
+              <Route
+                exact
+                path="/settings"
+                element={<Settings token={token} setToken={setToken} />}
+              ></Route>
+              <Route exact path="/addFriends" element={<AddFriends />} />
+            </Routes>
+          </>
+        )}
+      </div>
     </BrowserRouter>
   );
 }
