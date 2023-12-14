@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState, useEffect, useRef } from "react";
 import "../styles/Login.css";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import SelectSchool from "../components/SelectSchool";
 import { useNavigate } from "react-router-dom";
@@ -22,6 +23,7 @@ function Signup(props) {
   const navigate = useNavigate();
 
   //need to modify to create an account
+  const navigate = useNavigate();
   const [signInForm, setSigninForm] = useState({
     email: "",
     password: "",
@@ -55,9 +57,9 @@ function Signup(props) {
     })
       .then((response) => {
         props.setToken(response.data.access_token);
-        alert("registration successful!");
-        navigate("/login");
+        navigate("/");
       })
+
       .catch((error) => {
         if (error.response) {
           console.log(error.response);
