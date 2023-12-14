@@ -105,25 +105,63 @@ function ModalRSVP() {
                   Your description
                 </Text>
             </Flex>
-              <Box 
-                backgroundColor="#F1F1F1"
-                padding="3"
-                borderRadius="lg"
-                // minHeight="sm"
-                display="flex"
-                // minWidth="250"
-                width="full"
-                flexDirection="column"
-              >
-                <Text color='#BEBEBE' fontSize='14px' as='b'>
-                  GUESTS
-                </Text>
-                <Stack direction='row'>
-                  <Avatar name='David Lee' src='https://bit.ly/broken-link' />
-                  <Avatar name='Joyce Jiang' src='https://bit.ly/broken-link' />
-                  <Avatar name='Oshigaki Kisame' src='https://bit.ly/broken-link' />
-                </Stack>
-              </Box>
+            <Box 
+            backgroundColor="#F1F1F1"
+            padding="3"
+            borderRadius="lg"
+            // minHeight="sm"
+            display="flex"
+            // minWidth="250"
+            width="full"
+            flexDirection="column"
+            >
+            <Text color='#BEBEBE' fontSize='14px' as='b'>
+                GOING
+            </Text>
+            <Stack direction='row'>
+                <Avatar name='David Lee' src='https://bit.ly/broken-link' />
+                <Avatar name='Joyce Jiang' src='https://bit.ly/broken-link' />
+                <Avatar name='Oshigaki Kisame' src='https://bit.ly/broken-link' />
+            </Stack>
+            </Box>
+            <Box 
+            backgroundColor="#F1F1F1"
+            padding="3"
+            borderRadius="lg"
+            // minHeight="sm"
+            display="flex"
+            // minWidth="250"
+            width="full"
+            flexDirection="column"
+            >
+            <Text color='#BEBEBE' fontSize='14px' as='b'>
+                NOT GOING
+            </Text>
+            <Stack direction='row'>
+                <Avatar name='David Lee' src='https://bit.ly/broken-link' />
+                <Avatar name='Joyce Jiang' src='https://bit.ly/broken-link' />
+                <Avatar name='Oshigaki Kisame' src='https://bit.ly/broken-link' />
+            </Stack>
+            </Box>
+            <Box 
+            backgroundColor="#F1F1F1"
+            padding="3"
+            borderRadius="lg"
+            // minHeight="sm"
+            display="flex"
+            // minWidth="250"
+            width="full"
+            flexDirection="column"
+            >
+            <Text color='#BEBEBE' fontSize='14px' as='b'>
+                NOT RESPONDED
+            </Text>
+            <Stack direction='row'>
+                <Avatar name='David Lee' src='https://bit.ly/broken-link' />
+                <Avatar name='Joyce Jiang' src='https://bit.ly/broken-link' />
+                <Avatar name='Oshigaki Kisame' src='https://bit.ly/broken-link' />
+            </Stack>
+            </Box>
 
             </VStack>
           </ModalBody>
