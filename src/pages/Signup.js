@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState, useEffect, useRef } from "react";
 import "../styles/Login.css";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import SelectSchool from "../components/SelectSchool";
 
@@ -293,10 +294,12 @@ function Signup(props) {
                     value={signInForm.year}
                   />
                 </FormControl>
-
+		
+	  	<Link to={"/"}>
                 <Button onClick={createAccount} colorScheme="blue" width="full">
                   Submit
                 </Button>
+	  	</Link>
                 <Text fontSize="xs" color="gray.500">
                   By entering and clicking Next, you agree to the{" "}
                   <Text as="span" color="blue.500">

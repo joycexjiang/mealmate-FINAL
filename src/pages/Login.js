@@ -7,7 +7,7 @@ import {
   Button,
 } from "@radix-ui/themes";
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import "../styles/Login.css";
 import logoIcon from "../images/icon.svg";
 import axios from "axios";
@@ -28,12 +28,12 @@ function Login(props) {
 
   function logMeIn(event) {
     //idk
-    event.preventDefault();
+//    event.preventDefault();
     console.log("logging in with:", loginForm);
 
     axios({
       method: "POST",
-      url: "/token",
+      url: "/login",
       data: {
         email: loginForm.email,
         password: loginForm.password,
@@ -55,7 +55,7 @@ function Login(props) {
       password: "",
     });
 
-    event.preventDefault();
+//    event.preventDefault();
   }
 
   function handleChange(event) {
@@ -114,13 +114,18 @@ function Login(props) {
             >
               Log in
             </Button>
+	    </Link>
           </Box>
           <Box className="mt-6 text-center text-xs text-gray-500">
             By entering and clicking Next, you agree to the Terms, E-Sign
             Consent, & Privacy Policy
           </Box>
           <Box className="mt-4 text-center">
-            <Button className="text-sm">Don't have an account? Sign Up</Button>
+            <Link to={"/signup"}>
+	  <Button className="text-sm text-blue-600 hover:text-blue-500">
+              Don't have an account? Sign Up
+            </Button>
+	  </Link>
           </Box>
         </Box>
       </Box>
