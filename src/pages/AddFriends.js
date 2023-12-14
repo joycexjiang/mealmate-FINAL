@@ -117,7 +117,7 @@ return (
             <Flex>
                 <Button
                     // onClick={logMeIn}
-                    width="145px"
+                    width="120px"
                 >
                     Skip
                 </Button>
@@ -125,7 +125,7 @@ return (
                 <Button
                     // onClick={logMeIn}
                     colorScheme="blue"
-                    width="145px"
+                    width="120px"
                 >
                     Next
                 </Button>
