@@ -7,7 +7,7 @@ import {
   Button,
 } from "@radix-ui/themes";
 import React, { useState } from "react";
-import { useNavigate, Link, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/Login.css";
 import logoIcon from "../images/icon.svg";
 import axios from "axios";
@@ -36,7 +36,7 @@ function Login(props) {
 
   function logMeIn(event) {
     //idk
-//    event.preventDefault();
+    //    event.preventDefault();
     console.log("logging in with:", loginForm);
 
     axios({
@@ -121,15 +121,14 @@ function Login(props) {
             >
               <Link to={"/"}>Log in</Link>
             </Button>
-	    </Link>
           </Box>
 
           <Box className="mt-4 text-center">
             <Link to={"/signup"}>
-	  <Button className="text-sm text-blue-600 hover:text-blue-500">
-              Don't have an account? Sign Up
-            </Button>
-	  </Link>
+              <Button className="text-sm text-blue-600 hover:text-blue-500">
+                Don't have an account? Sign Up
+              </Button>
+            </Link>
           </Box>
         </Box>
       </Box>

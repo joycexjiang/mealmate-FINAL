@@ -17,11 +17,8 @@ import "../styles/Login.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import SelectSchool from "../components/SelectSchool";
-import { useNavigate } from "react-router-dom";
 
 function Signup(props) {
-  const navigate = useNavigate();
-
   //need to modify to create an account
   const navigate = useNavigate();
   const [signInForm, setSigninForm] = useState({

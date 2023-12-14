@@ -52,6 +52,7 @@ function App() {
                 path="/settings"
                 element={<Settings token={token} setToken={setToken} />}
               ></Route>
+              <Route exact path="/addFriends" element={<AddFriends />} />
             </Routes>
           </>
         )}
