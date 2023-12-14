@@ -87,7 +87,7 @@ return (
             borderRadius="lg"
             />
 
-            <div className="mt-2 flex flex-wrap ">
+            <div className="bubble padding">
                 <FormLabel>Friend's Email</FormLabel>
                 {/* Render the TagInput component */}
               <TagInput onAddTag={addTag} />{" "}
@@ -108,7 +108,7 @@ return (
                       <Cross1Icon />
                     </button>
                   </div>
-                  </div>
+                </div>
                 ))}
               </div>
 
