@@ -28,7 +28,7 @@ function Login(props) {
 
   function logMeIn(event) {
     //idk
-//    event.preventDefault();
+    //    event.preventDefault();
     console.log("logging in with:", loginForm);
 
     axios({
@@ -55,7 +55,7 @@ function Login(props) {
       password: "",
     });
 
-//    event.preventDefault();
+    //    event.preventDefault();
   }
 
   function handleChange(event) {
@@ -114,7 +114,6 @@ function Login(props) {
             >
               Log in
             </Button>
-	    </Link>
           </Box>
           <Box className="mt-6 text-center text-xs text-gray-500">
             By entering and clicking Next, you agree to the Terms, E-Sign
@@ -122,10 +121,10 @@ function Login(props) {
           </Box>
           <Box className="mt-4 text-center">
             <Link to={"/signup"}>
-	  <Button className="text-sm text-blue-600 hover:text-blue-500">
-              Don't have an account? Sign Up
-            </Button>
-	  </Link>
+              <Button className="text-sm text-blue-600 hover:text-blue-500">
+                Don't have an account? Sign Up
+              </Button>
+            </Link>
           </Box>
         </Box>
       </Box>
