@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 
 import "../styles/AddFriends.css";
 import ModalInvite from '../components/ModalInvite'
+import ModalRSVP from '../components/ModalRSVP'
 
 import {
     Flex,
@@ -23,6 +24,7 @@ import {
     Input,
     ChakraProvider,
   } from "@chakra-ui/react";
+
 
 import {Cross1Icon} from '@radix-ui/react-icons'
 
@@ -51,6 +53,7 @@ function AddFriends(){
 return (
     <ChakraProvider>
         {<ModalInvite />}
+        {<ModalRSVP />}
         <Flex
         height="100vh"
         alignItems="center"

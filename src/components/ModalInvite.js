@@ -40,6 +40,12 @@ import {
   PopoverAnchor,
 } from "@chakra-ui/react";
 
+import { 
+    // TimeIcon, 
+    AddIcon, 
+    // WarningIcon 
+} from '@chakra-ui/icons'
+
 function ModalInvite() {
   
   const OverlayOne = () => (
@@ -54,7 +60,7 @@ function ModalInvite() {
 
   return (
     <>
-      <Button onClick={onOpen} size='sm'>Open Modal</Button>
+      <Button onClick={onOpen} size='sm'>Open Modal Invite</Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         {overlay}
@@ -63,6 +69,31 @@ function ModalInvite() {
           <ModalCloseButton />
           <ModalBody>
             <VStack spacing="4">
+            <Box 
+                backgroundColor="#F1F1F1"
+                padding="3"
+                borderRadius="lg"
+                width='full'
+                // minHeight="sm"
+                display="flex"
+                flexDirection="column"
+              >
+                <Text color='#BEBEBE' fontSize='14px' as='b'>
+                  TITLE
+                </Text>
+                <Input 
+                // onChange={handleChange}
+                variant='unstyled'
+                // type="email"
+                // name="email"
+                color="#797979"
+                font-weight="bold"
+                placeholder="Add title"
+                _placeholder={{ opacity: 1, color: '#BEBEBE'}}
+                // value={loginForm.email} 
+                />
+              </Box>
+
               <Flex width='full'> 
                 <Box 
                   backgroundColor="#F1F1F1"
@@ -123,6 +154,8 @@ function ModalInvite() {
                   <Avatar name='David Lee' src='https://bit.ly/broken-link' />
                   <Avatar name='Joyce Jiang' src='https://bit.ly/broken-link' />
                   <Avatar name='Oshigaki Kisame' src='https://bit.ly/broken-link' />
+                  {/* <Avatar name='+' src='https://bit.ly/broken-link' /> */}
+                  {/* <AddIcon w={10} h={10}/> */}
                 </Stack>
               </Box>
               <Box 
