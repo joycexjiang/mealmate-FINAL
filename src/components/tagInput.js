@@ -1,4 +1,12 @@
+// TagInput.js
+
 import React, { useState } from "react";
+
+import {
+    FormControl,
+    FormLabel,
+    Input,
+  } from "@chakra-ui/react";
 
 const TagInput = ({ onAddTag }) => {
   const [tagInput, setTagInput] = useState("");
@@ -19,17 +27,18 @@ const TagInput = ({ onAddTag }) => {
   };
 
   return (
-    <input
+    <Input
       type="text"
       id="tags"
       name="tags"
       value={tagInput}
       onChange={handleTagInputChange}
       onKeyDown={handleTagInputKeyDown}
-      placeholder="add tags"
-      className="mt-4 w-full block p-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+      placeholder="friend@columbia.edu"
+    //   className="mt-4 w-full block p-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
     />
   );
 };
 
 export default TagInput;
+
