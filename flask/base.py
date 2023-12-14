@@ -33,7 +33,6 @@ class User(db.Model):
     email = db.Column(db.String(100), nullable=False)
     password = db.Column(db.String(100), nullable=False) 
     first = db.Column(db.String(100), nullable=False)
-    last = db.Column(db.String(100), nullable=False)
     school = db.Column(db.String(100), nullable=False)
     year = db.Column(db.String(100), nullable=False)
 
@@ -57,7 +56,7 @@ def refresh_expiring_jwts(response):
         return response
 
 ## creates the login token
-@api.route('/token', methods=["POST"])
+@api.route('/login', methods=["POST"])
 def create_token():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
@@ -83,10 +82,9 @@ def create_account():
         return{"msg" "This email is already associated with an account. Please sign in"}, 401
     password = bcrypt.generate_password_hash(password,10) #password hashing
     first = request.json.get("first", None)
-    last = request.json.get("last", None)
     school = request.json.get("school", None)
     year = request.json.get("year",None)
-    UserTemp = User(email=email, password=password, first=first, last=last, school=school, year=year)
+    UserTemp = User(email=email, password=password, first=first, school=school, year=year)
     db.session.add(UserTemp)
     db.session.commit() # user added to database
     access_token = create_access_token(identity=email) #access token created
