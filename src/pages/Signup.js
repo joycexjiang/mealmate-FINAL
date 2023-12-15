@@ -210,7 +210,7 @@ function Signup(props) {
                 </FormControl>
 
                 <Button onClick={createAccount} colorScheme="blue" width="full">
-                  Submit
+                  <a href="/login">Submit</a>
                 </Button>
                 <Text fontSize="xs" color="gray.500">
                   By entering and clicking Next, you agree to the{" "}

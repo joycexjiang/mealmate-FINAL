@@ -13,6 +13,7 @@ import logoIcon from "../images/icon.svg";
 import axios from "axios";
 
 function Login(props) {
+  const [error, setError] = useState("");
   const [loginForm, setloginForm] = useState({
     email: "",
     password: "",
@@ -56,6 +57,7 @@ function Login(props) {
           console.log(error.response);
           console.log(error.response.status);
           console.log(error.response.headers);
+          setError("login error :( :(", error.response.data.message);
         }
       });
 
@@ -125,6 +127,8 @@ function Login(props) {
           </Box>
 
           <Box className="mt-4 text-center">
+            {error && <p className="text-red-500">{error}</p>}
+
             <p className="mt-10 text-center text-sm text-gray-500">
               Don't have an account?{" "}
               <a

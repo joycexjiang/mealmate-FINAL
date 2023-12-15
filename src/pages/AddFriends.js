@@ -1,100 +1,94 @@
 // AddFriends.js
 
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
 import "../styles/AddFriends.css";
-import ModalInvite from '../components/ModalInvite'
-import ModalRSVP from '../components/ModalRSVP'
+import ModalInvite from "../components/ModalInvite";
+import ModalRSVP from "../components/ModalRSVP";
 
 import {
-    Flex,
-    Stack,
-    // StackDivider,
-    VStack,
-    Box,
-    Text,
-    Heading,
-    Button,
-    Divider,
-    Spacer,
-    // Image, 
-    // ButtonGroup,
-    FormControl,
-    FormLabel,
-    Input,
-    ChakraProvider,
-  } from "@chakra-ui/react";
+  Flex,
+  Stack,
+  // StackDivider,
+  VStack,
+  Box,
+  Text,
+  Heading,
+  Button,
+  Divider,
+  Spacer,
+  // Image,
+  // ButtonGroup,
+  FormControl,
+  FormLabel,
+  Input,
+  ChakraProvider,
+} from "@chakra-ui/react";
 
+import { Cross1Icon } from "@radix-ui/react-icons";
 
-import {Cross1Icon} from '@radix-ui/react-icons'
+import TagInput from "../components/TagInput";
 
-import TagInput from '../components/TagInput'
+function AddFriends() {
+  //TAGS
+  const [tags, setTags] = useState([]);
 
-function AddFriends(){
-
-    //TAGS
-    const [tags, setTags] = useState([]);
-
-    const addTag = (newTag) => {
+  const addTag = (newTag) => {
     setTags([...tags, newTag]);
-    };
+  };
 
-    const removeTag = (indexToRemove) => {
+  const removeTag = (indexToRemove) => {
     const updatedTags = tags.filter((_, index) => index !== indexToRemove);
     setTags(updatedTags);
-    };
+  };
 
-    // let count = 0;
-    function handleChange() {
-        // console.log("changed." + count.toString());
-        // count++;
-    };
+  // let count = 0;
+  function handleChange() {
+    // console.log("changed." + count.toString());
+    // count++;
+  }
 
-return (
+  return (
     <ChakraProvider>
-        {<ModalInvite />}
-        {<ModalRSVP />}
-        <Flex
+      {<ModalInvite />}
+      {<ModalRSVP />}
+      <Flex
         height="100vh"
         alignItems="center"
         justifyContent="center"
         padding="10"
-        >
+      >
         <Stack
-            direction={{
+          direction={{
             base: "column",
             md: "row",
-            }}
-            spacing="24px"
-            maxWidth="1200px"
+          }}
+          spacing="24px"
+          maxWidth="1200px"
         >
-            <Box
+          <Box
             backgroundColor="white"
             padding="8"
+            border="1px solid #ddd"
             borderRadius="lg"
             boxShadow="md"
             minWidth="sm"
             minHeight="md"
             display="flex"
             flexDirection="column"
-            >
-                
+          >
             <VStack spacing="5">
-                <Heading as="h2" size="lg">
+              <Heading as="h2" size="lg">
                 Start adding friends
-                </Heading>
+              </Heading>
             </VStack>
-            <Box
-            backgroundColor="white"
-            padding="1"
-            borderRadius="lg"
-            />
+            <Box backgroundColor="white" padding="1" borderRadius="lg" />
 
-            <div className="bubble padding">
-                <FormLabel>Friend's Email</FormLabel>
-                {/* Render the TagInput component */}
+            <div className="bubble pt-4">
+              <FormLabel>Friend's email</FormLabel>
+              {/* Render the TagInput component */}
               <TagInput onAddTag={addTag} />{" "}
-                {tags.map((tag, idx) => (
+              {tags.map((tag, idx) => (
                 <div className="bubble-padding">
                   <div
                     key={idx}
@@ -105,41 +99,39 @@ return (
                     <button
                       type="button"
                       onClick={() => removeTag(idx)}
-                    //   className="tag-remove"
-                    //   className="ml-2 focus:outline-none text-indigo-600 hover:text-indigo-800"
+                      //   className="tag-remove"
+                      //   className="ml-2 focus:outline-none text-indigo-600 hover:text-indigo-800"
                     >
                       <Cross1Icon />
                     </button>
                   </div>
                 </div>
-                ))}
-              </div>
+              ))}
+            </div>
 
-              <Spacer />
+            <Spacer />
 
             <Flex>
-                <Button
-                    // onClick={logMeIn}
-                    width="120px"
-                >
-                    Skip
-                </Button>
-                <Spacer />
-                <Button
-                    // onClick={logMeIn}
-                    colorScheme="blue"
-                    width="120px"
-                >
-                    Next
-                </Button>
+              <Button
+                // onClick={logMeIn}
+                width="120px"
+              >
+                Skip
+              </Button>
+              <Spacer />
+              <Button
+                // onClick={logMeIn}
+                colorScheme="blue"
+                width="120px"
+              >
+                Next
+              </Button>
             </Flex>
-            </Box>
-        </Stack>        
-        </Flex>
-
+          </Box>
+        </Stack>
+      </Flex>
     </ChakraProvider>
-
-    );
+  );
 }
 
 export default AddFriends;
