@@ -13,6 +13,7 @@ import logoIcon from "../images/icon.svg";
 import axios from "axios";
 
 function Login(props) {
+  const [error, setError] = useState("");
   const [loginForm, setloginForm] = useState({
     email: "",
     password: "",
@@ -36,12 +37,13 @@ function Login(props) {
 
   function logMeIn(event) {
     //idk
-    event.preventDefault();
+    //    event.preventDefault();
+    //    event.preventDefault();
     console.log("logging in with:", loginForm);
 
     axios({
       method: "POST",
-      url: "https://localhost:5067/login",
+      url: "/login",
       data: {
         email: loginForm.email,
         password: loginForm.password,
@@ -55,6 +57,7 @@ function Login(props) {
           console.log(error.response);
           console.log(error.response.status);
           console.log(error.response.headers);
+          setError("login error :( :(", error.response.data.message);
         }
       });
 
@@ -64,6 +67,14 @@ function Login(props) {
     });
 
     event.preventDefault();
+  }
+
+  function handleChange(event) {
+    const { value, name } = event.target;
+    setloginForm((prevNote) => ({
+      ...prevNote,
+      [name]: value,
+    }));
   }
 
   return (
@@ -116,13 +127,15 @@ function Login(props) {
           </Box>
 
           <Box className="mt-4 text-center">
+            {error && <p className="text-red-500">{error}</p>}
+
             <p className="mt-10 text-center text-sm text-gray-500">
               Don't have an account?{" "}
               <a
                 href="/signup"
                 className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
               >
-                Create an account
+                Sign up
               </a>
             </p>
           </Box>
