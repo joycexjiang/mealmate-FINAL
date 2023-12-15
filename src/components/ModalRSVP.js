@@ -5,13 +5,17 @@ import {Cross1Icon} from '@radix-ui/react-icons'
 import { 
     TimeIcon, 
     AtSignIcon, 
-    InfoIcon 
+    InfoIcon,
+    CheckIcon,
+    CloseIcon,
+    BellIcon
 } from '@chakra-ui/icons'
 
 import {
   Flex,
   Spacer,
   Stack,
+  IconButton,
   // StackDivider,
   VStack,
   HStack,
@@ -156,13 +160,72 @@ function ModalRSVP() {
             <Text color='#BEBEBE' fontSize='14px' as='b'>
                 NOT RESPONDED
             </Text>
-            <Stack direction='row'>
-                <Avatar name='David Lee' src='https://bit.ly/broken-link' />
-                <Avatar name='Joyce Jiang' src='https://bit.ly/broken-link' />
-                <Avatar name='Oshigaki Kisame' src='https://bit.ly/broken-link' />
-            </Stack>
+            <Flex>
+                <Stack direction='row'>
+                    <Avatar name='David Lee' src='https://bit.ly/broken-link' />
+                    <Avatar name='Joyce Jiang' src='https://bit.ly/broken-link' />
+                    <Avatar name='Oshigaki Kisame' src='https://bit.ly/broken-link' />
+                </Stack>
+                <Spacer />
+
+                <Popover>
+                    <PopoverTrigger>
+                    <IconButton
+                        icon={<BellIcon />}
+                        fontSize='20px'
+                        backgroundColor="#CECECE"
+                    />
+                    </PopoverTrigger>
+                    <PopoverContent maxWidth="200px">
+                        <PopoverArrow />
+                        <PopoverCloseButton />
+                        <PopoverHeader>Send Reminder?</PopoverHeader>
+                        <PopoverBody>
+                            <Flex>
+                            <Button width='full'>Send</Button>
+                            </Flex>
+                        </PopoverBody>
+                    </PopoverContent>
+                </Popover>
+
+                
+            </Flex>
             </Box>
 
+            <HStack>
+                <Text>
+                    Going?
+                </Text>
+                <Box 
+                backgroundColor="#F1F1F1"
+                padding="3"
+                borderRadius="lg"
+                // minHeight="sm"
+                display="flex"
+                >
+                    <IconButton
+                    isRound={true}
+                    variant='solid'
+                    colorScheme='green'
+                    aria-label='Done'
+                    fontSize='20px'
+                    icon={<CheckIcon />}
+                    />
+                    <Box 
+                    width='4'
+                    >
+                    </Box>
+                    <IconButton
+                    isRound={true}
+                    variant='solid'
+                    colorScheme='red'
+                    aria-label='Done'
+                    fontSize='20px'
+                    icon={<CloseIcon />}
+                    />
+                </Box>
+                <Box width='10'></Box>
+            </HStack>
             </VStack>
           </ModalBody>
 
