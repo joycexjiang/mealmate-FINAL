@@ -1,10 +1,11 @@
 import React from "react";
 import axios from "axios";
 import useToken from "./useToken";
-import { Button } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Button } from "@radix-ui/themes";
+import { useNavigate } from "react-router-dom";
 
-function Header(props) {
+function Header() {
+  const navigate = useNavigate();
   const { token, removeToken } = useToken();
 
   function logMeOut() {
@@ -13,7 +14,6 @@ function Header(props) {
       url: "/logout",
     })
       .then((response) => {
-        //  props.token()
         removeToken();
       })
       .catch((error) => {
@@ -26,13 +26,14 @@ function Header(props) {
   }
 
   return (
-    <header className="App-header">
-	<Link to={"/login"}>
-	  <Button onClick={logMeOut} colorScheme="blue">
-      	    Logout
-         </Button>
-	</Link>
-    </header>
+    <div className="border border-b px-6 pb-3 pt-3 flex items-center justify-end">
+      <Button
+        onClick={logMeOut}
+        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+      >
+        <a href="/login">Log out</a>
+      </Button>
+    </div>
   );
 }
 

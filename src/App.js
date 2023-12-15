@@ -14,8 +14,6 @@ import useToken from "./components/useToken";
 import AddFriends from "./pages/AddFriends";
 
 function App() {
-  // const isUserSignedIn = !!localStorage.getItem("token");
-
   const { token, removeToken, setToken } = useToken();
 
   return (
