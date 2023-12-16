@@ -190,18 +190,6 @@ const Home = () => {
           </Grid>
         {/* </Box> */}
         <Flex>
-          {/* <Box width="10%">
-            <Grid columns="1" gap="0" className="border-r">
-              {Array.from(
-                { length: 11 },
-                (_, i) => (
-                  <Box key={i} className="py-5 border-b text-sm text-gray-500">
-                        {`${((8 + i) % 12) + 1}:00 ${((8 + i) % 24) >= 11 ? 'pm' : 'am'}`}
-                  </Box>
-                )
-              )}
-            </Grid>
-          </Box> */}
           {/* Calendar Buttons */}
           <Box width="100%" >
             <Grid columns="1" gap="0" className="border-r">
@@ -237,7 +225,7 @@ const Home = () => {
                     >
                       <Flex width="100%" justify="between">
                         <Text>
-                        {`${((8 + i) % 12) + 1}:30 ${((8 + i) % 24) >= 11 ? 'pm' : 'am'} - ${((8 + i) % 12) + 2}:00 ${((8 + i) % 24) >= 10 ? 'pm' : 'am'}`}
+                        {`${((8 + i) % 12) + 1}:30 ${((8 + i) % 24) >= 11 ? 'pm' : 'am'} - ${((8 + i + 1) % 12) + 1}:00 ${((8 + i) % 24) >= 10 ? 'pm' : 'am'}`}
                         </Text>
                         <Flex gap="2">
                           <Avatar className="w-5 h-5 bg-purple-500 rounded-full" />
@@ -253,32 +241,6 @@ const Home = () => {
             </Grid>
           </Box>
         </Flex>
-
-        {/* <Grid columns="1" gap="0" className="border-r">
-          {Array.from(
-            { length: 11 },
-            (_, i) => (
-              <Box key={i} className="py-5 border-b text-sm text-gray-500">
-                <CStack spacing={2}>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => console.log(`${((8 + i) % 12) + 1}:00am`)}
-                  >
-                    {`${((8 + i) % 12) + 1}:00am`}
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => console.log(`${((8 + i + 1) % 12) + 1}:00am`)}
-                  >
-                    {`${((8 + i + 1) % 12) + 1}:00am`}
-                  </Button>
-                </CStack>
-              </Box>
-            )
-          )}
-        </Grid> */}
       
         <Flex className="absolute inset-y-0 left-60 pl-4 mt-14 gap-x-4">
           {Array.from(
