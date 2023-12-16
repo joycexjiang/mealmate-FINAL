@@ -189,32 +189,70 @@ const Home = () => {
             <Text className="pb-2 text-gray-500">Sat</Text>
           </Grid>
         {/* </Box> */}
+        <Flex>
+          {/* <Box width="10%">
+            <Grid columns="1" gap="0" className="border-r">
+              {Array.from(
+                { length: 11 },
+                (_, i) => (
+                  <Box key={i} className="py-5 border-b text-sm text-gray-500">
+                        {`${((8 + i) % 12) + 1}:00 ${((8 + i) % 24) >= 11 ? 'pm' : 'am'}`}
+                  </Box>
+                )
+              )}
+            </Grid>
+          </Box> */}
+          {/* Calendar Buttons */}
+          <Box width="100%" >
+            <Grid columns="1" gap="0" className="border-r">
+              {Array.from(
+                {
+                  length: 11,
+                },
+                (_, i) => (
+                  <Box key={i} className="border-b text-sm text-gray-500">
+                    <Flex direction="column">
+                    <Button
+                      color="amber"
+                      variant="surface"
+                      radius="full"
+                      text-color="black"
+                    >
+                      <Flex width="100%" justify="between">
+                        <Text>
+                        {`${((8 + i) % 12) + 1}:00 ${((8 + i) % 24) >= 11 ? 'pm' : 'am'} - ${((8 + i) % 12) + 1}:30 ${((8 + i) % 24) >= 11 ? 'pm' : 'am'}`}
+                        </Text>
+                        <Flex gap="2">
+                          <Avatar className="w-5 h-5 bg-purple-500 rounded-full" />
+                          <Avatar className="w-5 h-5 bg-purple-500 rounded-full" />
+                        </Flex>
+                      </Flex>
+                    </Button>
 
-        <Grid columns="1" gap="0" className="border-r">
-          {Array.from(
-            {
-              length: 11,
-            },
-            (_, i) => (
-              <Box key={i} className="border-b text-sm text-gray-500">
-                <Flex direction="column">
-                <Button
-                  variant="solid"
-                  radius="full"
-                >
-                  {`${((8 + i) % 12) + 1}:00 ${((8 + i) % 24) >= 11 ? 'pm' : 'am'}`}
-                </Button>
-                <Button
-                  variant="solid"
-                  radius="full"
-                >
-                  {`${((8 + i) % 12) + 1}:00 ${((8 + i) % 24) >= 11 ? 'pm' : 'am'}`}
-                </Button>
-                </Flex>
-              </Box>
-            )
-          )}
-        </Grid>
+                    <Button
+                      color="amber"
+                      variant="surface"
+                      radius="full"
+                      text-color="black"
+                    >
+                      <Flex width="100%" justify="between">
+                        <Text>
+                        {`${((8 + i) % 12) + 1}:30 ${((8 + i) % 24) >= 11 ? 'pm' : 'am'} - ${((8 + i) % 12) + 2}:00 ${((8 + i) % 24) >= 10 ? 'pm' : 'am'}`}
+                        </Text>
+                        <Flex gap="2">
+                          <Avatar className="w-5 h-5 bg-purple-500 rounded-full" />
+                          <Avatar className="w-5 h-5 bg-purple-500 rounded-full" />
+                        </Flex>
+                      </Flex>
+                    </Button>
+
+                    </Flex>
+                  </Box>
+                )
+              )}
+            </Grid>
+          </Box>
+        </Flex>
 
         {/* <Grid columns="1" gap="0" className="border-r">
           {Array.from(
