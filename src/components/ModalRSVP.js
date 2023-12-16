@@ -187,8 +187,6 @@ function ModalRSVP() {
                         </PopoverBody>
                     </PopoverContent>
                 </Popover>
-
-                
             </Flex>
             </Box>
 
@@ -209,6 +207,7 @@ function ModalRSVP() {
                     colorScheme='green'
                     aria-label='Done'
                     fontSize='20px'
+                    // width='500px'
                     icon={<CheckIcon />}
                     />
                     <Box 

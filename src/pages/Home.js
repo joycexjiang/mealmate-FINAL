@@ -1,5 +1,7 @@
 import React from "react";
+// import '@radix-ui/themes/styles.css';
 import {
+  Theme,
   Flex,
   Box,
   Heading,
@@ -19,8 +21,21 @@ import {
 } from "@radix-ui/react-icons";
 import "../App.css";
 
+import {
+  Flex as CFlex,
+  Stack as CStack,
+  Box as CBox,
+  Text as CText,
+  Button as CButton,
+  Divider as CDivider,
+  Spacer as CSpacer,
+  // Image, 
+  // ButtonGroup,
+} from "@chakra-ui/react";
+
 const Home = () => {
   return (
+    <Theme>
     <Flex className="min-h-screen flex justify-between" direction="row">
       {/* sidebar */}
       <Flex
@@ -121,6 +136,7 @@ const Home = () => {
             <QuestionMarkCircledIcon />
           </li>
         </Box>
+        
       </Flex>
       {/* main calendar */}
       <Box className="flex-auto w-3/5 p-4">
@@ -144,31 +160,88 @@ const Home = () => {
             </IconButton>
           </Flex>
         </Heading>
-        {/* days of the week */}
-        <Grid
-          columns="8"
-          gap="space-between"
-          className="pl-24 pr-24 flex items-center justify-between text-sm border-b"
-        >
-          <Text className="pb-2 text-gray-500">Sun</Text>
-          <Text className="pb-2 text-gray-500">Mon</Text>
-          <Text className="pb-2 text-gray-500">Tue</Text>
-          <Text className="pb-2 text-gray-500">Wed</Text>
-          <Text className="pb-2 text-gray-500">Thu</Text>
-          <Text className="pb-2 text-gray-500">Fri</Text>
-        </Grid>
+          {/* days of the month */}
+          <Grid
+            columns="7"
+            gap="space-between"
+            className="pl-24 pr-24 flex items-center justify-between text-sm"
+          >
+            <Text className="pb-2 text-gray-500">2</Text>
+            <Text className="pb-2 text-gray-500">3</Text>
+            <Text className="pb-2 text-gray-500">4</Text>
+            <Text className="pb-2 text-gray-500">5</Text>
+            <Text className="pb-2 text-gray-500">6</Text>
+            <Text className="pb-2 text-gray-500">7</Text>
+            <Text className="pb-2 text-gray-500">8</Text>
+          </Grid>
+          {/* days of the week */}
+          <Grid
+            columns="7"
+            gap="space-between"
+            className="pl-24 pr-24 flex items-center justify-between text-sm border-b"
+          >
+            <Text className="pb-2 text-gray-500">Sun</Text>
+            <Text className="pb-2 text-gray-500">Mon</Text>
+            <Text className="pb-2 text-gray-500">Tue</Text>
+            <Text className="pb-2 text-gray-500">Wed</Text>
+            <Text className="pb-2 text-gray-500">Thu</Text>
+            <Text className="pb-2 text-gray-500">Fri</Text>
+            <Text className="pb-2 text-gray-500">Sat</Text>
+          </Grid>
+        {/* </Box> */}
+
         <Grid columns="1" gap="0" className="border-r">
           {Array.from(
             {
-              length: 12,
+              length: 11,
             },
             (_, i) => (
-              <Box key={i} className="py-4 border-b text-sm text-gray-500">
-                {`${9 + i}:00 am`}
+              <Box key={i} className="border-b text-sm text-gray-500">
+                <Flex direction="column">
+                <Button
+                  variant="solid"
+                  radius="full"
+                >
+                  {`${((8 + i) % 12) + 1}:00 ${((8 + i) % 24) >= 11 ? 'pm' : 'am'}`}
+                </Button>
+                <Button
+                  variant="solid"
+                  radius="full"
+                >
+                  {`${((8 + i) % 12) + 1}:00 ${((8 + i) % 24) >= 11 ? 'pm' : 'am'}`}
+                </Button>
+                </Flex>
               </Box>
             )
           )}
         </Grid>
+
+        {/* <Grid columns="1" gap="0" className="border-r">
+          {Array.from(
+            { length: 11 },
+            (_, i) => (
+              <Box key={i} className="py-5 border-b text-sm text-gray-500">
+                <CStack spacing={2}>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => console.log(`${((8 + i) % 12) + 1}:00am`)}
+                  >
+                    {`${((8 + i) % 12) + 1}:00am`}
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => console.log(`${((8 + i + 1) % 12) + 1}:00am`)}
+                  >
+                    {`${((8 + i + 1) % 12) + 1}:00am`}
+                  </Button>
+                </CStack>
+              </Box>
+            )
+          )}
+        </Grid> */}
+      
         <Flex className="absolute inset-y-0 left-60 pl-4 mt-14 gap-x-4">
           {Array.from(
             {
@@ -181,6 +254,7 @@ const Home = () => {
         </Flex>
       </Box>
     </Flex>
+    </Theme>
   );
 };
 
