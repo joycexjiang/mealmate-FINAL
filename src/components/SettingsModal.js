@@ -1,5 +1,6 @@
 import React from "react";
-import { Avatar, Text, Box } from "@radix-ui/themes";
+import { Text, Box } from "@radix-ui/themes";
+import { Avatar } from "@chakra-ui/react";
 import * as Popover from "@radix-ui/react-popover";
 import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 import SignOutButton from "./SignOutButton";

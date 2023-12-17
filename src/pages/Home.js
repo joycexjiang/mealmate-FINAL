@@ -5,7 +5,6 @@ import {
   Flex,
   Box,
   Heading,
-  Avatar,
   Button,
   Text,
   AlertDialog,
@@ -13,6 +12,7 @@ import {
   Popover,
   Grid,
 } from "@radix-ui/themes";
+import { Avatar } from "@chakra-ui/react";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import {
   CheckIcon,
@@ -24,16 +24,14 @@ import "../App.css";
 import CalendarBar from "../components/CalendarBar";
 import FriendInput from "../components/FriendInput";
 import SettingsModal from "../components/SettingsModal";
+import ModalInvite from "../components/ModalInvite";
+import TimeSlotModal from "../components/TimeSlotModal";
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => {
+  const handleSlotButtonClick = () => {
     setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
   };
 
   return (
@@ -153,13 +151,6 @@ const Home = () => {
           </Box>
 
           <Box className="flex-none justify-between bg-white">
-            {/* <li className="flex items-center justify-between space-x-2">
-              <li className="flex items-center justify-between space-x-2">
-                <Avatar className="w-5 h-5 bg-yellow-500 rounded-full" />
-                <Text className="text-sm font-semibold">Joyce Jiang</Text>
-              </li>
-              <QuestionMarkCircledIcon />
-            </li> */}
             <SettingsModal />
           </Box>
         </Flex>
@@ -179,58 +170,97 @@ const Home = () => {
             {/* Calendar Buttons */}
             <Box width="100%">
               <Grid columns="1" gap="0" className="border-r">
-                {Array.from(
-                  {
-                    length: 11,
-                  },
-                  (_, i) => (
-                    <Box key={i} className="border-b text-sm text-gray-500">
-                      <Flex direction="column">
-                        <Button
-                          color="amber"
-                          variant="surface"
-                          radius="full"
-                          text-color="black"
-                        >
-                          <Flex width="100%" justify="between">
-                            <Text>
-                              {`${((8 + i) % 12) + 1}:00 ${
-                                (8 + i) % 24 >= 11 ? "pm" : "am"
-                              } - ${((8 + i) % 12) + 1}:30 ${
-                                (8 + i) % 24 >= 11 ? "pm" : "am"
-                              }`}
-                            </Text>
-                            <Flex gap="2">
-                              <Avatar className="w-5 h-5 bg-purple-500 rounded-full" />
-                              <Avatar className="w-5 h-5 bg-purple-500 rounded-full" />
-                            </Flex>
-                          </Flex>
-                        </Button>
+                <Theme>
+                  <Box className="border-b text-sm h-16 text-gray-500 flex items-center">
+                    <Text className="mr-4">9:00 am</Text>
+                  </Box>
 
-                        <Button
-                          color="amber"
-                          variant="surface"
-                          radius="full"
-                          text-color="black"
-                        >
-                          <Flex width="100%" justify="between">
-                            <Text>
-                              {`${((8 + i) % 12) + 1}:30 ${
-                                (8 + i) % 24 >= 11 ? "pm" : "am"
-                              } - ${((8 + i + 1) % 12) + 1}:00 ${
-                                (8 + i) % 24 >= 10 ? "pm" : "am"
-                              }`}
-                            </Text>
-                            <Flex gap="2">
-                              <Avatar className="w-5 h-5 bg-purple-500 rounded-full" />
-                              <Avatar className="w-5 h-5 bg-purple-500 rounded-full" />
-                            </Flex>
+                  <Box className="py-4 border-b text-sm h-16 text-gray-500 justify-center items-center">
+                    10:00 am
+                  </Box>
+
+                  <Box className=" border-b text-sm text-gray-500 flex flex-row items-center">
+                    <Text className="pr-8">11:00 am</Text>
+                    <div className="w-full flex flex-col">
+                      <TimeSlotModal />
+                      <Button
+                        className="w-full h-full flex-1 py-2 bg-gray-200 hover:bg-gray-300"
+                        color="gray"
+                        variant="surface"
+                        radius="full"
+                        text-color="black"
+                      >
+                        <Flex width="100%" justify="between">
+                          <Text>11:30 am - 12:00 am</Text>
+                          <Flex gap="2">
+                            <Avatar
+                              className="w-5 h-5 bg-yellow-500 rounded-full"
+                              fallback="J"
+                            />
                           </Flex>
-                        </Button>
-                      </Flex>
-                    </Box>
-                  )
-                )}
+                        </Flex>
+                      </Button>
+                    </div>
+                  </Box>
+
+                  <Box className="border-b text-sm h-16 text-gray-500 flex items-center">
+                    12:00 pm
+                  </Box>
+                  <Box className=" border-b text-sm text-gray-500 flex flex-row items-center">
+                    <Text className="pr-8">1:00 pm</Text>
+                    <div className="w-full flex flex-col">
+                      <Button
+                        className="w-full h-full flex-1 py-2 bg-gray-200 hover:bg-gray-300"
+                        color="gray"
+                        variant="surface"
+                        radius="full"
+                        text-color="black"
+                      >
+                        <Flex width="100%" justify="between">
+                          <Text>1:00 pm - 1:30 pm</Text>
+                          <Flex gap="2">
+                            <Avatar
+                              className="w-5 h-5 bg-yellow-500 rounded-full"
+                              fallback="J"
+                            />
+                          </Flex>
+                        </Flex>
+                      </Button>
+                      <Button
+                        className="w-full h-full flex-1 py-2 bg-gray-200 hover:bg-gray-300"
+                        color="gray"
+                        variant="surface"
+                        radius="full"
+                        text-color="black"
+                      >
+                        <Flex width="100%" justify="between">
+                          <Text>1:30 pm - 2:00 pm</Text>
+                          <Flex gap="2">
+                            <Avatar
+                              className="w-5 h-5 bg-yellow-500 rounded-full"
+                              fallback="J"
+                            />
+                          </Flex>
+                        </Flex>
+                      </Button>
+                    </div>
+                  </Box>
+                  <Box className="border-b text-sm h-16 text-gray-500 flex items-center">
+                    2:00 pm
+                  </Box>
+                  <Box className="border-b text-sm h-16 text-gray-500 flex items-center">
+                    3:00 pm
+                  </Box>
+                  <Box className="border-b text-sm h-16 text-gray-500 flex items-center">
+                    4:00 pm
+                  </Box>
+                  <Box className="border-b text-sm h-16 text-gray-500 flex items-center">
+                    5:00 pm
+                  </Box>
+                  <Box className="border-b text-sm h-16 text-gray-500 flex items-center">
+                    6:00 pm
+                  </Box>
+                </Theme>
               </Grid>
             </Box>
           </Flex>

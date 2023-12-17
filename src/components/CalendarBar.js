@@ -6,7 +6,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 const CalendarBar = () => {
   return (
     <Theme>
-      <div className="flex items-center justify-between p-4 rounded-lg shadow bg-gray-100 mb-8">
+      <div className="flex items-center justify-between p-2 rounded-lg shadow bg-gray-100 mb-4">
         <div className="w-6 h-6 flex items-center justify-center rounded-lg">
           <ChevronLeftIcon />
         </div>
