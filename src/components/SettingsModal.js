@@ -29,7 +29,7 @@ const SettingsModal = () => (
               <a href="/settings">Account</a>
             </li>
             <li className="border-b border-gray-200 py-2 pb-4">
-              <a href="/settings">Availability</a>
+              <a href="/availability">Availability</a>
             </li>
             <SignOutButton />
           </ul>
