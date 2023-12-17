@@ -17,13 +17,50 @@ import {
     Link,
     Switch,
     Divider,
+    useToast
   } from "@chakra-ui/react";
-  import { Printer } from "lucide-react";
   import { User, Share } from "lucide-react"; //replace with chakra
+  import React, { useState, useEffect } from "react";
+
 
 //   import { render } from "react-dom";
 // import React, { useState, useEffect, useRef } from "react";
   function Availability(){
+    const [changesMade, setChangesMade] = useState(false);
+    const toast = useToast();
+  
+    const handleCheckboxChange = () => {
+      // Handle checkbox changes
+      setChangesMade(true);
+    };
+  
+    const handleSaveChanges = () => {
+      if (changesMade) {
+        // If changes were made, show "Changes saved" message
+        toast({
+          title: "Changes saved!",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+  
+        // Reset changesMade state
+        setChangesMade(false);
+  
+        // Reload the page after 1 second
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      } else {
+        // If no changes were made, inform the user
+        toast({
+          title: "No changes to save",
+          status: "info",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
+    };
     return (
       <ChakraProvider>
         <Box p="4" bg="#F7FAFC" minH="100vh">
@@ -72,15 +109,6 @@ import {
           <Flex justify="space-between" mb={10}>
             {/* Nav bar */}
             <HStack spacing={4}>
-              {/* <Button variant="link" fontSize="md">
-                Home
-               </Button>
-               <Button variant="link" fontSize="md">
-                Settings
-               </Button>
-               <Button variant="link" fontSize="md">
-                Log out
-               </Button> */}
               <Icon as={Menu} w={6} h={6} />
             </HStack>
           </Flex>
@@ -91,7 +119,7 @@ import {
                 <Text fontSize="2xl" fontWeight="bold" mb="6">
                 Availability + Calendar
                 </Text>
-                <Box borderWidth="1px" borderRadius="md" className="button" bg="#E5E4E2"paddingTop={1} paddingBottom={1}paddingLeft={2} paddingRight={2} mb={2} mt={2}>
+                {/* <Box borderWidth="1px" borderRadius="md" className="button" bg="#E5E4E2"paddingTop={1} paddingBottom={1}paddingLeft={2} paddingRight={2} mb={2} mt={2}>
                     <HStack spacing={3}>
                     <Button variant="outline" size="sm">
                         <Link href="http://localhost:3000/availability" textDecoration="none" >
@@ -109,9 +137,9 @@ import {
                             </Link>
                         </Button>
                     </HStack>
-                </Box>
+                </Box> */}
               <Box>
-                <Heading as="h3" size="md" mb={4}>
+                <Heading as="h3" size="sm" mb={4}>
                   Connected calendars
                 </Heading>
                 <Button variant="outline" size="sm" mb={6}>
@@ -134,12 +162,15 @@ import {
                 </Text>
                 <VStack align="start" spacing={2} mb={6}>
                   <Checkbox defaultChecked>personal</Checkbox>
-                  <Checkbox defaultChecked>fall 2023 classes</Checkbox>
-                  <Checkbox>work</Checkbox>
-                  <Checkbox>health</Checkbox>
-                  <Checkbox>clubs</Checkbox>
+                  <Checkbox  defaultCheckedonChange={handleCheckboxChange}> fall 2023 classes</Checkbox>
+                  <Checkbox onChange={handleCheckboxChange}>work</Checkbox>
+                  <Checkbox onChange={handleCheckboxChange}>health</Checkbox>
+                  <Checkbox onChange={handleCheckboxChange}>clubs</Checkbox>
                 </VStack>
-                <Button colorScheme="blue">Save changes</Button>
+                <Button colorScheme="blue" onClick={handleSaveChanges}>
+                    Save changes
+                </Button>
+            {/* <Button colorScheme="blue">Save changes</Button> */}
               </Box>
             </GridItem>
           </Flex>
