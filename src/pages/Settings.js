@@ -144,18 +144,24 @@
 
 //---------------------------------------------------------------------
 
+/* Settings Header */
+
+import "./Settings.css";
 import {
   ChakraProvider,
   Box,
+  Grid,
+  GridItem,
   VStack,
   Text,
-  Divider,
+  HStack,
   Input,
   Link,
   Switch,
   Button,
+  Divider,
 } from "@chakra-ui/react";
-import { User, Share } from "lucide-react";
+import { User, Share } from "lucide-react"; //replace with chakra
 import { render } from "react-dom";
 import { SettingsIcon
 } from "@chakra-ui/icons"
@@ -165,33 +171,60 @@ function Settings(){
   return (
     <ChakraProvider>
       <Box p="4" bg="#F7FAFC" minH="100vh">
-        {/* Added Box component for the sidebar */}
-        <Box
-          maxW="400px"
-          mx="auto"
-          bg="white"
-          p="6"
-          borderRadius="md"
-          boxShadow="sm"
-        >
-          <VStack spacing="6" align="flex-start">
-            {/* Added Box component for the logo */}
-            <Box>
-              <Text fontSize="2xl" fontWeight="bold">
-                MEALMATE
-              </Text>
-            </Box>
-            <Divider />
-            {/* Added another VStack for the sidebar */}
-            <VStack spacing="6" align="flex-start">
-              <VStack spacing="1" align="flex-start">
-                <Text fontSize="lg" fontWeight="semibold">
-                  <User size={24} /> Account
+        <Grid templateColumns="repeat(12, 1fr)" gap={8}>
+          <GridItem colSpan={10} colEnd={3}>
+            {/* Navigation Bar */}
+            <VStack spacing="20" align="flex-start">
+              {/* Logo */}
+              <HStack>
+                <div
+                  style={{
+                    color: "#63B3ED",
+                  }}
+                />
+                <Text fontSize="2xl" fontWeight="bold" mt="0" pt="0">
+                  MEALMATE 
                 </Text>
+              </HStack>
+              {/* Account */}
+              <HStack>
+                <Link href="#" textDecoration="none">
+                  <HStack>
+                    <User size={21} />
+                    <Text fontSize="sm" fontWeight="semibold">
+                      Account
+                    </Text>
+                  </HStack>
+                </Link>
+              </HStack>
+              {/* Share Settings */}
+              <HStack>
+                <Share size={21} />
+                <Text fontSize="sm"fontWeight="semibold">
+                  Availability 
+                </Text>
+              </HStack>
+            </VStack>
+          </GridItem>
+
+          <GridItem colStart={5} colSpan={15} bg="#F7FAFC" colEnd={10}>
+            {/* Settings Box */}
+
+            {/* Header */}
+            <Text fontSize="2xl" fontWeight="bold" mb="6">
+              Account
+            </Text>
+
+            <VStack spacing="6" align="flex-start">
+              {/* Name */}
+              <VStack spacing="1" align="flex-start">
                 <Text fontSize="sm" color="gray.500">
                   Name
                 </Text>
                 <Input placeholder="Morty Smith" />
+              </VStack>
+              {/* Email */}
+              <VStack spacing="1" align="flex-start">
                 <Text fontSize="sm" color="gray.500">
                   Email
                 </Text>
@@ -203,36 +236,45 @@ function Settings(){
                   </Link>
                 </Text>
               </VStack>
-              <VStack spacing="1" align="flex-start">
-                <Text fontSize="lg" fontWeight="semibold">
-                  <Share size={24} /> Share Settings
-                </Text>
-                <VStack spacing="3" align="flex-start">
-                  <Box>
-                    <Text fontSize="sm">Share availability with friends</Text>
+              {/* Share availability with friends */}
+              <VStack spacing="3" align="flex-start">
+                <HStack>
+                  <Text fontSize="2md" fontWeight="semibold" mb="4">
+                    Share Settings
+                  </Text>
+                </HStack>
+                <HStack>
+                  <Text fontSize="sm">Share availability with friends</Text>
+                  <Switch />
+                </HStack>
+                <HStack>
+                  <Text fontSize="sm">Share availability with everyone</Text>
+                  <VStack spacing="4">
                     <Switch />
-                  </Box>
-                  <Box>
-                    <Text fontSize="sm">Share availability with everyone</Text>
-                    <Text fontSize="xs" color="gray.500">
-                      This will share your availability with everyone on
-                      MealMate
-                    </Text>
-                    <Switch />
-                  </Box>
-                </VStack>
+                  </VStack>
+                </HStack>
+                <HStack>
+                  <Text fontSize="xs" color="gray.500">
+                    This will share your availability with everyone on MealMate
+                  </Text>
+                </HStack>
               </VStack>
+              {/* Email Notifications */}
               <VStack spacing="1" align="flex-start">
-                <Text fontSize="lg" fontWeight="semibold">
-                  <SettingsIcon size={24} /> Email Notifications
-                </Text>
-                <Box>
+                <HStack>
+                  <SettingsIcon size={24} />
+                  <Text fontSize="lg" fontWeight="semibold">
+                    Email Notifications
+                  </Text>
+                </HStack>
+                <HStack>
                   <Text fontSize="sm">
                     Receive emails whenever someone sends me an invite
                   </Text>
                   <Switch />
-                </Box>
+                </HStack>
               </VStack>
+              {/* Privacy */}
               <VStack spacing="1" align="flex-start">
                 <Text fontSize="lg" fontWeight="semibold">
                   Privacy
@@ -240,26 +282,27 @@ function Settings(){
                 <Text fontSize="sm" color="gray.500">
                   Current password
                 </Text>
-                <Input placeholder="********" />
+                <Input type="password" placeholder="********" />
                 <Text fontSize="sm" color="gray.500">
                   New password
                 </Text>
-                <Input placeholder="New password" />
-                <Button colorScheme="blue" variant="outline">
+                <Input type="password" placeholder="New password" />
+                <Button className="Savepassword" colorScheme="blue" variant="outline" margin-top="20px" margin-left="750px">
                   Save password
                 </Button>
               </VStack>
               <Divider />
+              
               <Button colorScheme="red" variant="link">
                 DELETE MY ACCOUNT
               </Button>
               <Button colorScheme="blue">Save changes</Button>
             </VStack>
-          </VStack>
-        </Box>
+          </GridItem>
+        </Grid>
       </Box>
     </ChakraProvider>
   );
 }
-export default Settings();
+export default Settings;
 // render(<Settings />, document.getElementById("root"));
