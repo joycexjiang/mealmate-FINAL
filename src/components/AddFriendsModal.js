@@ -41,12 +41,6 @@ function AddFriendsModal({ onClose }) {
     setTags(updatedTags);
   };
 
-  const handleNextClick = () => {
-    // Perform any necessary action related to the "Next" button click
-    // Close the modal
-    onClose();
-  };
-
   return (
     <ChakraProvider>
       <div className="modal-overlay">
@@ -84,10 +78,19 @@ function AddFriendsModal({ onClose }) {
               {/* Render the TagInput component */}
               <TagInput onAddTag={addTag} />{" "}
               {tags.map((tag, idx) => (
-                <div className="bubble-padding" key={idx}>
-                  <div className="tag-bubble">
+                <div className="bubble-padding">
+                  <div
+                    key={idx}
+                    className="tag-bubble"
+                    // className="bg-indigo-200 rounded-full px-3 py-1 text-sm text-indigo-800 mr-2 mt-2 flex items-center border border-indigo-300"
+                  >
                     <span>{tag}</span>
-                    <button type="button" onClick={() => removeTag(idx)}>
+                    <button
+                      type="button"
+                      onClick={() => removeTag(idx)}
+                      //   className="tag-remove"
+                      //   className="ml-2 focus:outline-none text-indigo-600 hover:text-indigo-800"
+                    >
                       <Cross1Icon />
                     </button>
                   </div>
@@ -99,11 +102,7 @@ function AddFriendsModal({ onClose }) {
 
             <Flex>
               <Spacer />
-              <Button
-                colorScheme="blue"
-                width="120px"
-                onClick={handleNextClick}
-              >
+              <Button colorScheme="blue" width="120px">
                 Add
               </Button>
             </Flex>

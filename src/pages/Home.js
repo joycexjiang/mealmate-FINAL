@@ -5,10 +5,11 @@ import {
   Flex,
   Box,
   Heading,
-  Button,
   Avatar,
+  Button,
   Text,
   IconButton,
+  AlertDialog,
   Grid,
 } from "@radix-ui/themes";
 import * as Checkbox from "@radix-ui/react-checkbox";
@@ -19,7 +20,7 @@ import {
 } from "@radix-ui/react-icons";
 import "../App.css";
 import CalendarBar from "../components/CalendarBar";
-import AddFriendsModal from "../components/AddFriendsModal";
+import FriendInput from "../components/FriendInput";
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -112,19 +113,39 @@ const Home = () => {
 
                 <Avatar className="w-5 h-5 bg-red-500 rounded-full" />
               </li>
-
-              <li className="mt-4 flex items-center space-x-2">
-                <Button
-                  variant="ghost"
-                  className="items-center space-x-1 cursor-pointer"
-                  onClick={openModal}
-                >
-                  <PlusIcon className="w-4 h-4 text-gray-600" />
-                  <div className="text-gray-600 text-sm"> Add a friend</div>
-                </Button>
-                {isModalOpen && <AddFriendsModal onClose={closeModal} />}
-              </li>
             </Flex>
+            <div className="mt-4">
+              <AlertDialog.Root>
+                <AlertDialog.Trigger>
+                  <Button
+                    variant="ghost"
+                    className="items-center space-x-1 cursor-pointer"
+                  >
+                    <PlusIcon className="w-4 h-4 text-gray-600" />
+                    <div className="text-gray-600 text-sm"> Add a friend</div>
+                  </Button>
+                </AlertDialog.Trigger>
+                <AlertDialog.Content style={{ maxWidth: 450 }}>
+                  <AlertDialog.Title>Add friends</AlertDialog.Title>
+                  <AlertDialog.Description size="2">
+                    <FriendInput />
+                  </AlertDialog.Description>
+
+                  <Flex gap="3" mt="4" justify="end">
+                    <AlertDialog.Cancel>
+                      <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                        Cancel
+                      </button>
+                    </AlertDialog.Cancel>
+                    <AlertDialog.Action>
+                      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Add
+                      </button>
+                    </AlertDialog.Action>
+                  </Flex>
+                </AlertDialog.Content>
+              </AlertDialog.Root>
+            </div>
           </Box>
 
           <Box className="flex-none justify-between bg-white p-4">
