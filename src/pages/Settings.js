@@ -147,8 +147,7 @@
 /* Settings Header */
 
 import "../styles/Settings.css";
-import ".pages/Availability.js"
-import Availability from "./Availability";
+import availability from "./Availability";
 import {
   ChakraProvider,
   Box,
@@ -168,8 +167,14 @@ import { render } from "react-dom";
 import { SettingsIcon
 } from "@chakra-ui/icons"
 import React, { useState, useEffect, useRef } from "react";
+import {
+  BrowserRouter,
+  Routes, // instead of "Switch"
+  Route,
+} from "react-router-dom";
 
 function Settings(){
+
   return (
     <ChakraProvider>
       <Box p="4" bg="#F7FAFC" minH="100vh">

@@ -1,3 +1,4 @@
+import { CalendarIcon } from "@chakra-ui/icons";
 import {
     ChakraProvider,
     Box,
@@ -10,19 +11,63 @@ import {
     Text,
     Button,
     Checkbox,
+    Grid,
+    GridItem,
+    Input,
+    Link,
+    Switch,
+    Divider,
   } from "@chakra-ui/react";
   import { Printer } from "lucide-react";
-  import { render } from "react-dom";
-  import React, { useState, useEffect, useRef } from "react";
-  function availability() {
+  import { User, Share } from "lucide-react"; //replace with chakra
+
+//   import { render } from "react-dom";
+// import React, { useState, useEffect, useRef } from "react";
+  function Availability(){
     return (
       <ChakraProvider>
-        <Box bg="#F7FAFC" p={10}>
+        <Box p="4" bg="#F7FAFC" minH="100vh">
+        <Grid templateColumns="repeat(12, 1fr)" gap={8}>
+          <GridItem colSpan={10} colEnd={3}>
+            {/* Navigation Bar */}
+            <VStack spacing="20" align="flex-start">
+              {/* Logo */}
+              <HStack>
+                <div
+                  style={{
+                    color: "#63B3ED",
+                  }}
+                />
+                <Text fontSize="2xl" fontWeight="bold" mt="0" pt="0">
+                  MEALMATE 
+                </Text>
+              </HStack>
+              {/* Account */}
+              <HStack>
+                <Link href="http://localhost:3000/settings" textDecoration="none">
+                  <HStack>
+                    <User  size={21} />
+                    <Text fontSize="sm" fontWeight="semibold">
+                      Account Settings
+                    </Text>
+                  </HStack>
+                </Link>
+              </HStack>
+              {/* Share Settings */}
+              <HStack>
+                <Link href="http://localhost:3000/availability" textDecoration="none" >
+                  <HStack>
+                  <Share size={21} />
+                  <Text fontSize="sm"fontWeight="semibold">
+                    Availability 
+                  </Text>
+                  </HStack>
+                </Link>
+              </HStack>
+            </VStack>
+          </GridItem>
           {/* Header */}
           <Flex justify="space-between" mb={10}>
-            <Heading as="h1" size="md">
-              Mealmate
-            </Heading>
             {/* Nav bar */}
             <HStack spacing={4}>
               {/* <Button variant="link" fontSize="md">
@@ -38,45 +83,25 @@ import {
             </HStack>
           </Flex>
           <Flex>
-            <VStack align="start" spacing={4} w="200px">
-              <Text fontWeight="semibold">Account</Text>
-              <Text fontWeight="bold">Availability</Text>
-            </VStack>
-            <Box flex="1" bg="white" p={6} borderRadius="md" boxShadow="md">
-              <Box>
-                <Text fontWeight="bold" fontSize="lg">
-                  Availability
+
+            <GridItem colStart={5} colSpan={20} bg="#F7FAFC" colEnd={10}>
+                {/* Header */}
+                <Text fontSize="2xl" fontWeight="bold" mb="6">
+                Availability + Calendar
                 </Text>
-              </Box>
-              <HStack spacing={3} mb={3}>
-                <Button
-                  variant="outline"
-                  borderWidth="1px"
-                  borderRadius="md"
-                  p={2}
-                  fontSize="sm"
-                >
-                  Connected calendars
-                </Button>
-                <Button
-                  variant="outline"
-                  borderWidth="1px"
-                  borderRadius="md"
-                  p={2}
-                  fontSize="sm"
-                >
-                  Hours & Preferences
-                </Button>
-                <Button
-                  variant="outline"
-                  borderWidth="1px"
-                  borderRadius="md"
-                  p={2}
-                  fontSize="sm"
-                >
-                  Slot override
-                </Button>
-              </HStack>
+                <Box borderWidth="1px" borderRadius="md" className="button" bg="#E5E4E2"paddingTop={1} paddingBottom={1}paddingLeft={2} paddingRight={2} mb={2} mt={2}>
+                    <HStack spacing={3}>
+                    <Button variant="outline" size="sm">
+                            Connected calendars
+                        </Button>
+                        <Button variant="outline" size="sm">
+                            Hours and Preferences
+                        </Button>
+                        <Button variant="outline" size="sm">
+                            Slot Override
+                        </Button>
+                    </HStack>
+                </Box>
               <Box>
                 <Heading as="h3" size="md" mb={4}>
                   Connected calendars
@@ -87,10 +112,10 @@ import {
                 <Box borderWidth="1px" borderRadius="md" p={4} mb={6}>
                   <HStack justifyContent="space-between">
                     <HStack>
-                      <Icon as={Printer} color="gray.500" />
+                      <Icon as={CalendarIcon} color="gray.500" />
                       <Text>Google</Text>
                     </HStack>
-                    <Text>uni@columbia.edu</Text>
+                    <Text>lel2168@barnard.edu</Text>
                   </HStack>
                 </Box>
                 <Heading as="h3" size="md" mb={4}>
@@ -108,8 +133,9 @@ import {
                 </VStack>
                 <Button colorScheme="blue">Save changes</Button>
               </Box>
-            </Box>
+            </GridItem>
           </Flex>
+        </Grid>
         </Box>
       </ChakraProvider>
     );

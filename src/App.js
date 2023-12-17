@@ -54,14 +54,16 @@ function App() {
               <Route exact path="/addFriends" element={<AddFriends />} />
 
               <Route
+              exact path="/availability" element={<Availability />}
+              ></Route>
+
+              <Route
                 exact
                 path="/settings"
                 element={<Settings/>}
               ></Route>
 
-              <Route
-              exact path="/Availability" element={<Availability />}
-              ></Route>
+              
 
 
             </Routes>
