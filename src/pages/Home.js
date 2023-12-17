@@ -184,7 +184,7 @@ const Home = () => {
                     <div className="w-full flex flex-col">
                       <TimeSlotModal />
                       <Button
-                        className="w-full h-full flex-1 py-2"
+                        className="w-full h-full flex-1 py-2 bg-gray-200 hover:bg-gray-300"
                         color="gray"
                         variant="surface"
                         radius="full"
@@ -210,7 +210,7 @@ const Home = () => {
                     <Text className="pr-8">1:00 pm</Text>
                     <div className="w-full flex flex-col">
                       <Button
-                        className="w-full h-full flex-1 py-2"
+                        className="w-full h-full flex-1 py-2 bg-gray-200 hover:bg-gray-300"
                         color="gray"
                         variant="surface"
                         radius="full"
@@ -227,7 +227,7 @@ const Home = () => {
                         </Flex>
                       </Button>
                       <Button
-                        className="w-full h-full flex-1 py-2"
+                        className="w-full h-full flex-1 py-2 bg-gray-200 hover:bg-gray-300"
                         color="gray"
                         variant="surface"
                         radius="full"

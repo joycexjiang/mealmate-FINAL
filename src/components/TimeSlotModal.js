@@ -145,11 +145,14 @@ const TimeSlotModal = () => (
             />
           </div>
 
-          <div className="flex justify-end">
+          <Popover.Close
+            className="cursor-default flex justify-end"
+            aria-label="Close"
+          >
             <button className="cursor-pointer bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
               Create
             </button>
-          </div>
+          </Popover.Close>
         </div>
       </Popover.Content>
     </Popover.Portal>
