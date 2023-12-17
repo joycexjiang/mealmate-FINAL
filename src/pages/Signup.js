@@ -54,7 +54,7 @@ function Signup(props) {
     })
       .then((response) => {
         props.setToken(response.data.access_token);
-        navigate("/");
+        navigate("/login");
       })
 
       .catch((error) => {
