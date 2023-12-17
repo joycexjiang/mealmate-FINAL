@@ -1,0 +1,20 @@
+@import "@radix-ui/colors/black-alpha.css";
+@import "@radix-ui/colors/violet.css";
+
+.Savepassword{
+    background-color: black;
+    color: white; 
+    margin-left: 90px; 
+    margin-top: 20px; 
+    width: 100px;
+    height:max-content; 
+    font-size: 14px; 
+    justify-items: auto;
+}
+.Savepassword:hover{
+    color: black; 
+    background-color: white;
+}
+.switch{
+    align-self: flex-end;
+}

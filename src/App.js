@@ -8,10 +8,11 @@ import {
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
-import Settings from "./pages/Settings";
+import Settings from "./pages/Settings.js"
 import Header from "./components/Header";
 import useToken from "./components/useToken";
 import AddFriends from "./pages/AddFriends";
+import Availability from "./pages/Availability";
 
 function App() {
   const { token, removeToken, setToken } = useToken();
@@ -45,7 +46,7 @@ function App() {
                 path="/"
                 element={<Home token={token} setToken={setToken} />}
               ></Route>
-              <Route
+              {/* <Route
                 exact
                 path="/login"
                 element={<Login token={token} setToken={setToken} />}
@@ -54,8 +55,22 @@ function App() {
                 exact
                 path="/settings"
                 element={<Settings token={token} setToken={setToken} />}
-              ></Route>
+              ></Route> */}
               <Route exact path="/addFriends" element={<AddFriends />} />
+
+              <Route
+              exact path="/availability" element={<Availability />}
+              ></Route>
+
+              <Route
+                exact
+                path="/settings"
+                element={<Settings/>}
+              ></Route>
+
+              
+
+
             </Routes>
           </>
         )}
