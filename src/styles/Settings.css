@@ -1,3 +1,18 @@
 @import "@radix-ui/colors/black-alpha.css";
 @import "@radix-ui/colors/violet.css";
 
+.Savepassword{
+    margin-left: 75px; 
+    margin-top: 20px; 
+    width: 100px;
+    height:max-content; 
+    font-size: 10px;
+    background-color: pink;
+    content: inherit;
+    justify-items: auto;
+    font-display: white;
+}
+
+.switch{
+    align-self: flex-end;
+}

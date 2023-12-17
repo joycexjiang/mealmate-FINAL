@@ -146,7 +146,9 @@
 
 /* Settings Header */
 
-import "./Settings.css";
+import "../styles/Settings.css";
+import ".pages/Availability.js"
+import Availability from "./Availability";
 import {
   ChakraProvider,
   Box,
@@ -188,21 +190,25 @@ function Settings(){
               </HStack>
               {/* Account */}
               <HStack>
-                <Link href="#" textDecoration="none">
+                <Link href="http://localhost:3000/settings" textDecoration="none">
                   <HStack>
                     <User size={21} />
                     <Text fontSize="sm" fontWeight="semibold">
-                      Account
+                      Account Settings
                     </Text>
                   </HStack>
                 </Link>
               </HStack>
               {/* Share Settings */}
               <HStack>
-                <Share size={21} />
-                <Text fontSize="sm"fontWeight="semibold">
-                  Availability 
-                </Text>
+                <Link href="http://localhost:3000/availability" textDecoration="none" >
+                  <HStack>
+                  <Share size={21} />
+                  <Text fontSize="sm"fontWeight="semibold">
+                    Availability 
+                  </Text>
+                  </HStack>
+                </Link>
               </HStack>
             </VStack>
           </GridItem>
@@ -212,7 +218,7 @@ function Settings(){
 
             {/* Header */}
             <Text fontSize="2xl" fontWeight="bold" mb="6">
-              Account
+              Account Settings
             </Text>
 
             <VStack spacing="6" align="flex-start">
@@ -250,7 +256,8 @@ function Settings(){
                 <HStack>
                   <Text fontSize="sm">Share availability with everyone</Text>
                   <VStack spacing="4">
-                    <Switch />
+                    <div className="switch"><Switch /></div>
+                    
                   </VStack>
                 </HStack>
                 <HStack>
@@ -287,7 +294,7 @@ function Settings(){
                   New password
                 </Text>
                 <Input type="password" placeholder="New password" />
-                <Button className="Savepassword" colorScheme="blue" variant="outline" margin-top="20px" margin-left="750px">
+                <Button className="Savepassword" colorScheme="white" variant="outline">
                   Save password
                 </Button>
               </VStack>

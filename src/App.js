@@ -12,6 +12,7 @@ import Settings from "./pages/Settings.js"
 import Header from "./components/Header";
 import useToken from "./components/useToken";
 import AddFriends from "./pages/AddFriends";
+import Availability from "./pages/Availability";
 
 function App() {
   const { token, removeToken, setToken } = useToken();
@@ -56,6 +57,10 @@ function App() {
                 exact
                 path="/settings"
                 element={<Settings/>}
+              ></Route>
+
+              <Route
+              exact path="/Availability" element={<Availability />}
               ></Route>
 
 
