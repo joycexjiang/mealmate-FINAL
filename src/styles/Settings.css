@@ -2,17 +2,19 @@
 @import "@radix-ui/colors/violet.css";
 
 .Savepassword{
-    margin-left: 75px; 
+    background-color: black;
+    color: white; 
+    margin-left: 90px; 
     margin-top: 20px; 
     width: 100px;
     height:max-content; 
-    font-size: 10px;
-    background-color: pink;
-    content: inherit;
+    font-size: 14px; 
     justify-items: auto;
-    font-display: white;
 }
-
+.Savepassword:hover{
+    color: black; 
+    background-color: white;
+}
 .switch{
     align-self: flex-end;
 }

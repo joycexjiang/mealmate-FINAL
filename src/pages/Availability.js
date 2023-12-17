@@ -39,7 +39,9 @@ import {
                   }}
                 />
                 <Text fontSize="2xl" fontWeight="bold" mt="0" pt="0">
+                <Link href="http://localhost:3000" _hover={{ textDecoration: "none" }} _active={{ textDecoration: "none" }}>
                   MEALMATE 
+                </Link>
                 </Text>
               </HStack>
               {/* Account */}
@@ -59,7 +61,7 @@ import {
                   <HStack>
                   <Share size={21} />
                   <Text fontSize="sm"fontWeight="semibold">
-                    Availability 
+                    Availability + Calendar
                   </Text>
                   </HStack>
                 </Link>
@@ -92,13 +94,19 @@ import {
                 <Box borderWidth="1px" borderRadius="md" className="button" bg="#E5E4E2"paddingTop={1} paddingBottom={1}paddingLeft={2} paddingRight={2} mb={2} mt={2}>
                     <HStack spacing={3}>
                     <Button variant="outline" size="sm">
+                        <Link href="http://localhost:3000/availability" textDecoration="none" >
                             Connected calendars
+                        </Link>
                         </Button>
                         <Button variant="outline" size="sm">
-                            Hours and Preferences
+                            <Link href="http://localhost:3000/hours" textDecoration="none" >
+                                Hours and Preferences
+                            </Link>
                         </Button>
                         <Button variant="outline" size="sm">
-                            Slot Override
+                            <Link href="http://localhost:3000/slotoverride" textDecoration="none" >
+                                Slot Override
+                            </Link>
                         </Button>
                     </HStack>
                 </Box>
