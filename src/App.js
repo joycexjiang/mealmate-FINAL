@@ -19,7 +19,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header token={removeToken} />
+        {/* <Header token={removeToken} /> */}
         <Routes>
           <Route
             exact
@@ -44,6 +44,11 @@ function App() {
                 exact
                 path="/"
                 element={<Home token={token} setToken={setToken} />}
+              ></Route>
+              <Route
+                exact
+                path="/login"
+                element={<Login token={token} setToken={setToken} />}
               ></Route>
               <Route
                 exact

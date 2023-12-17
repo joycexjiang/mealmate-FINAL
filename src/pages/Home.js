@@ -8,19 +8,22 @@ import {
   Avatar,
   Button,
   Text,
-  IconButton,
   AlertDialog,
+  TextArea,
+  Popover,
   Grid,
 } from "@radix-ui/themes";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import {
   CheckIcon,
   QuestionMarkCircledIcon,
+  ChatBubbleIcon,
   PlusIcon,
 } from "@radix-ui/react-icons";
 import "../App.css";
 import CalendarBar from "../components/CalendarBar";
 import FriendInput from "../components/FriendInput";
+import SettingsModal from "../components/SettingsModal";
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -40,6 +43,7 @@ const Home = () => {
         <Flex
           direction="column"
           className="flex-none w-1/5 justify-between bg-white p-4 border-r border-gray-200"
+          style={{ height: "100vh" }}
         >
           <Box direction="column">
             <Heading as="h3" className="font-semibold text-lg mb-6">
@@ -148,14 +152,15 @@ const Home = () => {
             </div>
           </Box>
 
-          <Box className="flex-none justify-between bg-white p-4">
-            <li className="flex items-center justify-between space-x-2">
+          <Box className="flex-none justify-between bg-white">
+            {/* <li className="flex items-center justify-between space-x-2">
               <li className="flex items-center justify-between space-x-2">
                 <Avatar className="w-5 h-5 bg-yellow-500 rounded-full" />
                 <Text className="text-sm font-semibold">Joyce Jiang</Text>
               </li>
               <QuestionMarkCircledIcon />
-            </li>
+            </li> */}
+            <SettingsModal />
           </Box>
         </Flex>
         {/* main calendar */}
