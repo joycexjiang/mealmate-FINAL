@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import '@radix-ui/themes/styles.css';
 import {
   Theme,
@@ -16,25 +16,22 @@ import {
   CheckIcon,
   QuestionMarkCircledIcon,
   PlusIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
 } from "@radix-ui/react-icons";
 import "../App.css";
 import CalendarBar from "../components/CalendarBar";
-
-import {
-  Flex as CFlex,
-  Stack as CStack,
-  Box as CBox,
-  Text as CText,
-  Button as CButton,
-  Divider as CDivider,
-  Spacer as CSpacer,
-  // Image,
-  // ButtonGroup,
-} from "@chakra-ui/react";
+import AddFriendsModal from "../components/AddFriendsModal";
 
 const Home = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <Theme>
       <Flex className="min-h-screen flex justify-between" direction="row">
@@ -120,10 +117,12 @@ const Home = () => {
                 <Button
                   variant="ghost"
                   className="items-center space-x-1 cursor-pointer"
+                  onClick={openModal}
                 >
                   <PlusIcon className="w-4 h-4 text-gray-600" />
-                  Add a friend
+                  <div className="text-gray-600 text-sm"> Add a friend</div>
                 </Button>
+                {isModalOpen && <AddFriendsModal onClose={closeModal} />}
               </li>
             </Flex>
           </Box>
