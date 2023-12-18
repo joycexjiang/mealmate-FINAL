@@ -19,18 +19,15 @@ import {
     Divider,
     useToast
   } from "@chakra-ui/react";
-  import { User, Share } from "lucide-react"; //replace with chakra
+  import { User, Share } from "lucide-react";
   import React, { useState, useEffect } from "react";
 
 
-//   import { render } from "react-dom";
-// import React, { useState, useEffect, useRef } from "react";
   function Availability(){
     const [changesMade, setChangesMade] = useState(false);
     const toast = useToast();
   
     const handleCheckboxChange = () => {
-      // Handle checkbox changes
       setChangesMade(true);
     };
   
@@ -119,25 +116,6 @@ import {
                 <Text fontSize="2xl" fontWeight="bold" mb="6">
                 Availability + Calendar
                 </Text>
-                {/* <Box borderWidth="1px" borderRadius="md" className="button" bg="#E5E4E2"paddingTop={1} paddingBottom={1}paddingLeft={2} paddingRight={2} mb={2} mt={2}>
-                    <HStack spacing={3}>
-                    <Button variant="outline" size="sm">
-                        <Link href="http://localhost:3000/availability" textDecoration="none" >
-                            Connected calendars
-                        </Link>
-                        </Button>
-                        <Button variant="outline" size="sm">
-                            <Link href="http://localhost:3000/hours" textDecoration="none" >
-                                Hours and Preferences
-                            </Link>
-                        </Button>
-                        <Button variant="outline" size="sm">
-                            <Link href="http://localhost:3000/slotoverride" textDecoration="none" >
-                                Slot Override
-                            </Link>
-                        </Button>
-                    </HStack>
-                </Box> */}
               <Box>
                 <Heading as="h3" size="sm" mb={4}>
                   Connected calendars
@@ -170,7 +148,6 @@ import {
                 <Button colorScheme="blue" onClick={handleSaveChanges}>
                     Save changes
                 </Button>
-            {/* <Button colorScheme="blue">Save changes</Button> */}
               </Box>
             </GridItem>
           </Flex>
