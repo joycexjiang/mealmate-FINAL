@@ -15,16 +15,27 @@ import {
     GridItem,
     Input,
     Link,
-    Switch,
-    Divider,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    FormControl,
+    FormLabel,
     useToast
   } from "@chakra-ui/react";
-  import { User, Share } from "lucide-react";
-  import React, { useState, useEffect } from "react";
+  import { User, Plus, Clock} from "lucide-react";
+  import React, { useState, } from "react";
 
 
   function Availability(){
     const [changesMade, setChangesMade] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+    const [email, setEmail] = useState("");
+    const [isValidEmail, setIsValidEmail] = useState(true); // Track email validity
     const toast = useToast();
   
     const handleCheckboxChange = () => {
@@ -58,6 +69,33 @@ import {
         });
       }
     };
+    const handleModalOpen = () => {
+        setIsModalOpen(true);
+      };
+    
+      const handleModalClose = () => {
+        setIsModalOpen(false);
+      };
+
+    const handleSubmitForm = () => {
+        // Validate the email format
+        const validEmailDomains = ["@columbia.edu", "@barnard.edu", "@gmail.com"];
+        const isValidEmail = validEmailDomains.some((domain) => email.endsWith(domain));
+    
+        if (isValidEmail) {
+            // Handle form submission logic here
+            setIsFormSubmitted(true);
+        }else{
+            toast({
+                title: "Invalid email format",
+                status: "error",
+                duration: 3000,
+                isClosable: true,
+
+            }); 
+        }
+    };
+
     return (
       <ChakraProvider>
         <Box p="4" bg="#F7FAFC" minH="100vh">
@@ -93,7 +131,7 @@ import {
               <HStack>
                 <Link href="http://localhost:3000/availability" textDecoration="none" >
                   <HStack>
-                  <Share size={21} />
+                  <Clock  size={21} />
                   <Text fontSize="sm"fontWeight="semibold">
                     Availability + Calendar
                   </Text>
@@ -113,16 +151,57 @@ import {
 
             <GridItem colStart={5} colSpan={20} bg="#F7FAFC" colEnd={10}>
                 {/* Header */}
+               
                 <Text fontSize="2xl" fontWeight="bold" mb="6">
                 Availability + Calendar
                 </Text>
               <Box>
-                <Heading as="h3" size="sm" mb={4}>
+                <Heading as="h3" size="sm" mb={6}>
                   Connected calendars
                 </Heading>
-                <Button variant="outline" size="sm" mb={6}>
-                  Add calendar account
-                </Button>
+                <HStack>
+                    
+                    <Button variant="outline" size="sm" mb={6} onClick={handleModalOpen}>
+                    <Plus size={16} />Add calendar account
+                    </Button>
+                </HStack>
+                <Modal isOpen={isModalOpen} onClose={handleModalClose}>
+                    <ModalOverlay />
+                    <ModalContent>
+                        <ModalHeader>Add Calendar Account</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>
+                            {isFormSubmitted ? (
+                                <Text>Email submitted! Check your inbox for set up information!</Text>
+                            ) : (
+                            <VStack spacing={4}>
+                                <FormControl>
+                                <FormLabel>Email</FormLabel>
+                                <Input
+                      type="email"
+                      placeholder="Enter your email"
+                      onChange={(e) => setEmail(e.target.value)}
+                      isInvalid={!isValidEmail} // Highlight if email is invalid
+                    />
+                    {!isValidEmail && (
+                      <Text color="red.500" fontSize="sm">
+                        Please enter a correct email.
+                      </Text>
+                    )}
+                  </FormControl>
+                            
+                            </VStack>
+                            )}
+                        </ModalBody>
+                        <ModalFooter>
+                        <Button colorScheme="blue" mr={3}  onClick={handleSubmitForm}>
+                            Submit
+                        </Button>
+                        </ModalFooter>
+                    </ModalContent>
+                </Modal>
+
+
                 <Box borderWidth="1px" borderRadius="md" p={4} mb={6}>
                   <HStack justifyContent="space-between">
                     <HStack>
@@ -139,8 +218,8 @@ import {
                   Set your calendar(s) to check for conflicts of your availability
                 </Text>
                 <VStack align="start" spacing={2} mb={6}>
-                  <Checkbox defaultChecked>personal</Checkbox>
-                  <Checkbox  defaultCheckedonChange={handleCheckboxChange}> fall 2023 classes</Checkbox>
+                  <Checkbox onChange={handleCheckboxChange}>personal</Checkbox>
+                  <Checkbox onChange={handleCheckboxChange}> fall 2023 classes</Checkbox>
                   <Checkbox onChange={handleCheckboxChange}>work</Checkbox>
                   <Checkbox onChange={handleCheckboxChange}>health</Checkbox>
                   <Checkbox onChange={handleCheckboxChange}>clubs</Checkbox>
@@ -157,3 +236,4 @@ import {
     );
   }
   export default Availability;
+  
