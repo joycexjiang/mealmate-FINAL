@@ -1,151 +1,3 @@
-
-// import { ExternalLinkIcon } from '@chakra-ui/icons'
-
-// import {
-//   extendTheme,
-//   ChakraProvider,
-//   Flex,
-//   Box, 
-//   Text,
-//   Stack,
-//   VStack,
-//   Heading,
-//   Button,
-//   Divider,
-//   FormControl,
-//   FormLabel,
-//   Input, 
-//   Link
-// } from "@chakra-ui/react";
-// import React, { useState, useEffect, useRef } from 'react';
-
-
-// function Settings(props){
-
-//   const [loginForm, setloginForm] = useState({
-//     email: "",
-//     password: ""
-//   })
-
-//   const handlechange = (event) => {
-//     const { name, value } = event.target;
-//     setloginForm({
-//       ...loginForm,
-//       [name]: value,
-//     });
-//   };
-
-//   function logMeIn(event) {
-//     //idk
-//     event.preventDefault();
-//     console.log('logging in with:', loginForm);
-
-//     setloginForm(({
-//       email: "",
-//       password: ""}))
-
-//     event.preventDefault()
-//   }
-
-//   function handleChange(event) { 
-//     const {value, name} = event.target
-//     setloginForm(prevNote => ({
-//         ...prevNote, [name]: value})
-//     )}
-
-//   return (
-//     <div>
-//     <ChakraProvider>
-//       <Flex>
-//         <Stack>
-//         <Heading as="h2" size="me" padding="4">
-//               MealMate
-//         </Heading>
-//         <Box
-//           backgroundColor="pink"
-//           marginLeft="5"
-//           padding="4"
-//           borderRadius="lg"
-//           borderColor="yellow"
-//           borderStartWidth="5"
-//           boxShadow="md"
-//           maxWidth="sm"
-//           maxHeight="fit-content"
-//           marginTop="5"
-//         >
-//           <VStack spacing="5">
-            
-//             {/* <Button
-//               width="fit-content"
-//             >
-//               Account
-//             </Button> */}
-//             <Link href='https://chakra-ui.com' isExternal>
-//                Account <ExternalLinkIcon />
-//             </Link>
-//             <Link href='https://chakra-ui.com' isExternal>
-//               Availability <ExternalLinkIcon />
-//             </Link>
-//             <Divider />
-//             <FormControl id="email">
-//               <FormLabel>Enter your email address</FormLabel>
-//               <Input 
-//               onChange={handleChange}
-//               type="email"
-//               name="email"
-//               placeholder="Your email address"
-//               value={loginForm.email} 
-//               />
-//             </FormControl>
-//             <FormControl id="password">
-//               <FormLabel>Enter password</FormLabel>
-//               <Input 
-//               onChange={handleChange}
-//               type="password"
-//               name="password"
-//               placeholder="Enter password" 
-//               value={loginForm.password}
-//               />
-//             </FormControl>
-//             <Button 
-//             onClick={logMeIn}
-//             colorScheme="blue"
-//             width="full"
-//             >
-//               Submit
-//             </Button>
-//             <Text fontSize="xs" color="gray.500">
-//               By entering and clicking Next, you agree to the{" "}
-//               <Text as="span" color="blue.500">
-//                 Terms, E-Sign Consent, & Privacy Policy
-//               </Text>
-//             </Text>
-//           </VStack>
-//           <Text
-//             fontSize="sm"
-//             color="blue.500"
-//             textAlign="center"
-//             marginTop="5"
-//           >
-//             Already have an account? Sign In
-//           </Text>
-//         </Box>
-//       </Stack>
-//     </Flex>
-
-//     </ChakraProvider>
-//       </div>
-//   );
-// }
-
-// export default Settings;
-
-
-
-//---------------------------------------------------------------------
-
-/* Settings Header */
-
 import "../styles/Settings.css";
 import availability from "./Availability";
 import {
@@ -161,28 +13,15 @@ import {
   Switch,
   Button,
   Divider,
-  Flex, 
+  Flex,
   Spacer,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
 import { User, Share } from "lucide-react"; //replace with chakra
-import { EmailIcon, LockIcon, SettingsIcon
-} from "@chakra-ui/icons"
-import React, { useState, useEffect, useRef} from "react";
+import { EmailIcon, LockIcon, SettingsIcon } from "@chakra-ui/icons";
+import React, { useState, useEffect, useRef } from "react";
 
-function Settings(){
-
-  // const toast = useToast(); // Initialize the useToast hook
-
-  // const handleSavePassword = () => {
-  //   toast({
-  //     title: "New password saved!",
-  //     // Display "New password saved!" as toast message
-  //     status: "success",
-  //     duration: 3000,
-  //     isClosable: true,
-  //   });
-  // };
+function Settings() {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [passwordSaved, setPasswordSaved] = useState(false);
@@ -283,12 +122,15 @@ function Settings(){
                   }}
                 />
                 <Text fontSize="2xl" fontWeight="bold" mt="0" pt="0">
-                  MEALMATE 
+                  MEALMATE
                 </Text>
               </HStack>
               {/* Account */}
               <HStack>
-                <Link href="http://localhost:3000/settings" textDecoration="none">
+                <Link
+                  href="http://localhost:3000/settings"
+                  textDecoration="none"
+                >
                   <HStack>
                     <User size={21} />
                     <Text fontSize="sm" fontWeight="semibold">
@@ -299,12 +141,15 @@ function Settings(){
               </HStack>
               {/* Share Settings */}
               <HStack>
-                <Link href="http://localhost:3000/availability" textDecoration="none" >
+                <Link
+                  href="http://localhost:3000/availability"
+                  textDecoration="none"
+                >
                   <HStack>
-                  <Share size={21} />
-                  <Text fontSize="sm"fontWeight="semibold">
-                    Availability + Calendar
-                  </Text>
+                    <Share size={21} />
+                    <Text fontSize="sm" fontWeight="semibold">
+                      Availability + Calendar
+                    </Text>
                   </HStack>
                 </Link>
               </HStack>
@@ -325,14 +170,14 @@ function Settings(){
                 <Text fontSize="sm" color="gray.500">
                   Name
                 </Text>
-                <Input placeholder="Morty Smith" />
+                <Input placeholder="Joyce Jiang" />
               </VStack>
               {/* Email */}
               <VStack spacing="1" align="flex-start">
                 <Text fontSize="sm" color="gray.500">
                   Email
                 </Text>
-                <Input placeholder="uni@columbia.edu" />
+                <Input placeholder="lel2168@barnard.edu" />
                 <Text fontSize="sm" color="blue.500">
                   Email not verified.{" "}
                   <Link href="#" textDecoration="underline">
@@ -343,7 +188,7 @@ function Settings(){
               {/* Share availability with friends */}
               <VStack spacing="3" align="flex-start">
                 <HStack>
-                <SettingsIcon size={24} />
+                  <SettingsIcon size={24} />
                   <Text fontSize="lg" fontWeight="semibold">
                     Share Settings
                   </Text>
@@ -351,19 +196,25 @@ function Settings(){
                 <Box>
                   <HStack justify="space-between">
                     <Text fontSize="sm">Share availability with friends</Text>
-                    <Switch onChange={() => setShareWithFriends(!shareWithFriends)} />
-      
+                    <Switch
+                      onChange={() => setShareWithFriends(!shareWithFriends)}
+                    />
                   </HStack>
-                
+
                   <HStack justify="space-between">
                     <Text fontSize="sm">Share availability with everyone</Text>
                     <VStack spacing="4">
-                    <Switch onChange={() => setShareWithEveryone(!shareWithEveryone)} />
+                      <Switch
+                        onChange={() =>
+                          setShareWithEveryone(!shareWithEveryone)
+                        }
+                      />
                     </VStack>
                   </HStack>
                   <HStack>
                     <Text fontSize="xs" color="gray.500">
-                      This will share your availability with everyone on MealMate
+                      This will share your availability with everyone on
+                      MealMate
                     </Text>
                   </HStack>
                 </Box>
@@ -372,7 +223,7 @@ function Settings(){
               <VStack spacing="2" align="flex-start" marginTop="5">
                 <Box justify="space-between">
                   <HStack justifyItems="space-between">
-                  <EmailIcon size={24} />
+                    <EmailIcon size={24} />
                     <Text fontSize="lg" fontWeight="semibold">
                       Email Notifications
                     </Text>
@@ -385,14 +236,14 @@ function Settings(){
                   </HStack>
                 </Box>
               </VStack>
-              
+
               {/* Privacy */}
               <VStack spacing="1" align="flex-start">
                 <HStack>
                   <LockIcon size={24} />
-                    <Text fontSize="lg" fontWeight="semibold">
-                      Privacy
-                    </Text>
+                  <Text fontSize="lg" fontWeight="semibold">
+                    Privacy
+                  </Text>
                 </HStack>
                 <Text fontSize="sm" color="gray.500">
                   Current password
@@ -401,16 +252,17 @@ function Settings(){
                 <Text fontSize="sm" color="gray.500">
                   New password
                 </Text>
-                <Input 
-                  type="password" 
-                  placeholder="New password" 
-                  onChange={(e) => setNewPassword(e.target.value)}/>
-                <Button 
-                className="Savepassword" 
-                color="white" 
-                size="lg" 
-                variant="outline"
-                onClick={handleSavePassword}
+                <Input
+                  type="password"
+                  placeholder="New password"
+                  onChange={(e) => setNewPassword(e.target.value)}
+                />
+                <Button
+                  className="Savepassword"
+                  color="white"
+                  size="lg"
+                  variant="outline"
+                  onClick={handleSavePassword}
                 >
                   Save password
                 </Button>
@@ -426,13 +278,13 @@ function Settings(){
                 )}
               </VStack>
               <Divider />
-              
+
               <Button colorScheme="red" variant="link">
                 DELETE MY ACCOUNT
               </Button>
               <Button colorScheme="blue" onClick={handleSaveChanges}>
                 Save changes
-              </Button>           
+              </Button>
             </VStack>
           </GridItem>
         </Grid>
@@ -441,4 +293,3 @@ function Settings(){
   );
 }
 export default Settings;
-
