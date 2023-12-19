@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# MealMate
+
+MealMate is an application designed to help college students coordinate and find convenient times to eat together, streamlining the process of scheduling meals with friends.
+
+## Team Information
+
+- **Team Number:** 11
+- **Team Mentor:** Leo Zhang
+- **Team Members:** 
+  - Joyce Jiang (jj3115)
+  - Ariana Deen (asd2212)
+  - Lana Levine (lel2168)
+  - David Lee (djl2197)
+
+## Project Overview
+
+### Target User Population
+MealMate targets college students who face challenges in coordinating meal times with their friends due to varying schedules.
+
+### Problem Statement
+College students often struggle to sync their schedules with friends for meals. MealMate aims to simplify this process by allowing users to sync their calendars, find free times, and schedule meals effortlessly.
+
+### Brief Description of Prototype
+The prototype begins with an onboarding process where users can create an account manually or sign up using their Google or Apple accounts. Key features include adding friends, creating groups, setting up connected calendars, indicating availability, and scheduling meals. The main landing page highlights overlapping free times among friends for meal planning.
+
+## Checkpoint Progress
+
+### Current Prototype
+- **Low-fidelity Prototype:** Balsamiq prototype (submitted with checkpoint 3)
+- **High-fidelity Figma File:** [Link to Figma File](https://www.figma.com/file/NOTWGXWWqFXSMopEAkAoXF/mealmate?type=design&node-id=389-1392&mode=design)
+
+### Evaluations Summary
+- Design evaluations highlighted user-friendly aspects but suggested improvements in flexible time blocks and food options beyond dining halls.
+- Wizard of Oz evaluation indicated reduced tediousness in meal scheduling for larger groups but inconclusive results for smaller groups.
+
+## How to Run Locally
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+To run the application locally, follow these steps:
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Running Flask backend
+`npm run start-backend-mac`
+2. Setting up NPM and UI dependencies
+`npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion lucide-react @chakra-ui/icons @radix-ui/themes @radix-ui/icons`
+3. Run NPM
+`npm run start`
